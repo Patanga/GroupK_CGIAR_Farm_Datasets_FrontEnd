@@ -1,0 +1,40 @@
+h1 {
+    margin: 30px;
+}
+
+.grouping {
+    display: inline;
+    float: left;
+    width: 20%;
+}
+
+.select {
+    display: block;
+    margin: 20px 2px;
+    width: 90%;
+}
+
+.groupingSearchButton {
+    display: block;
+    margin: 30px auto;
+    width: 70%;
+    height: 40px;
+    font-size: larger;
+}
+
+.page {
+    display: inline;
+    float: left;
+    background-color: cornflowerblue;
+    width: 70%;
+    height: 800px;
+}
+
+.buttonlist{
+    width: inherit;
+}
+.pagebutton {
+    width: 20%;
+    height: 40px;
+    font-size: larger;
+}
