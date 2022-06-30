@@ -2,59 +2,23 @@ import { useState, useEffect } from 'react'
 import Select from 'react-select'
 import axios from 'axios'
 
-const applyGroupings = async (options) => {
-    // Re-calculate 
-}
-
-// For testing
-const grouping_countries = [
-    { value: 'gloabl', label: 'Global' },
-    { value: 'china', label: 'China' },
-    { value: 'usa', label: 'USA' },
-    { value: 'japan', label: 'Japan' },
-    { value: 'uk', label: 'UK' },
-]
-const grouping_regions = [
-    { value: 'whole_country', label: 'Whole Country' },
-    { value: 'asdasd', label: 'DSADAS' },
-    { value: 'qweqwe', label: 'QWEWQE' },
-    { value: 'sadasda', label: 'ASDSAD' },
-    { value: 'fghfgh', label: 'HGGDH' },
-]
-const grouping_projects = [
-    { value: 'all_projects', label: 'All projects' },
-    { value: 'adn', label: 'ADN' },
-    { value: 'abc', label: 'ABC' },
-    { value: 'jkl', label: 'JKL' },
-    { value: 'opo', label: 'OPO' },
-]
-
-
-
 const initLists = {
     countries: [
-        { value: "Loading", label: "Loading" }
+        { value: "", label: "Global" }
     ],
     regions: [
-        { value: "Loading", label: "Loading" }
+        { value: "", label: "All Regions" }
     ],
     projects: [
-        { value: "Loading", label: "Loading" }
+        { value: "", label: "All Projects" }
     ],
     income: [
-        { value: "Loading", label: "Loading" }
-    ],
+        { value: 'global', label: 'All income category' },
+        { value: 'under1', label: 'Below 1 USD' },
+        { value: '1to1.9', label: '1 to 1.9 USD' },
+        { value: 'over1.9', label: 'Above 1.9 USD' },
+    ]
 }
-
-const grouping_income = [
-    { value: 0, label: 'All income category' },
-    { value: 1, label: 'Below 1 USD' },
-    { value: 2, label: '1 to 1.9 USD' },
-    { value: 3, label: 'Above 1.9 USD' },
-]
-
-
-// const grouping_cat = [grouping_countries, grouping_regions, grouping_projects, grouping_income]
 
 const formatLists = (list) => {
     var arr = []
@@ -67,17 +31,17 @@ const formatLists = (list) => {
 const getGroupingLists = async () => {
     try {
         // Fetching from db
-        // const response = await axios.get('http://localhost:8080/api/data/groupinglists/');
+        const response = await axios.get('http://localhost:8080/api/data/groupinglists/');
         // Fetching from test json holder https://jsonkeeper.com/b/WRXI via proxy
         // If this temporary link failed, upload the groupingListsSample.json to jsonkeeper ato generate new link
-        const response = await axios.get('WRXI');
+        // const response = await axios.get('WRXI');
         console.log("Success in fetching Grouping Lists")
-        console.log(response.data)
+        // console.log(response.data)
         // return response.data
         return {
-            countries: formatLists(response.data["countryList"]),
-            regions: formatLists(response.data["regionList"]),
-            projects: formatLists(response.data["projectList"]),
+            countries: initLists.countries.concat(formatLists(response.data["countryList"])),
+            regions: initLists.regions.concat(formatLists(response.data["regionList"])),
+            projects: initLists.projects.concat(formatLists(response.data["projectList"])),
         }
     } catch (err) {
         console.log(err);
@@ -105,9 +69,9 @@ const Grouping = ({ options, optionLists, updateOptions }) => {
 
     const onClickSearchButton = () => {
         let newOptions = {
-            country: country.value ? country.value : '',
+            id_country: country.value ? country.value : '',
             region: region.value ? region.value : '',
-            project: project.value ? project.value : '',
+            id_proj: project.value ? project.value : '',
             income: income.value ? income.value : '',
         }
         updateOptions(newOptions)
@@ -121,10 +85,10 @@ const Grouping = ({ options, optionLists, updateOptions }) => {
             {
                 isLoading ? <h2>Loading...</h2> :
                     (<>
-                        <Select className='select' defaultValue={lists.countries[0].value} options={lists.countries} onChange={setCountry} />
-                        <Select className='select' defaultValue={lists.regions[0].value} options={lists.regions} onChange={setRegion} />
-                        <Select className='select' defaultValue={lists.projects[0].value} options={lists.projects} onChange={setProject} />
-                        <Select className='select' defaultValue={grouping_income[0].value} options={grouping_income} onChange={setIncome} />
+                        <Select className='select' defaultInputValue="Global" options={lists.countries} onChange={setCountry} />
+                        <Select className='select' defaultInputValue="Region" options={lists.regions} onChange={setRegion} />
+                        <Select className='select' defaultInputValue="Project" options={lists.projects} onChange={setProject} />
+                        <Select className='select' defaultInputValue="Income Category" options={initLists.income} onChange={setIncome} />
                         <button className='groupingSearchButton' onClick={onClickSearchButton}>Search</button>
                     </>
                     )

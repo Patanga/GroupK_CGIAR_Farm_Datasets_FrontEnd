@@ -23,11 +23,11 @@ h1 {
 }
 
 .page {
+    background-color: azure;
     display: inline;
     float: left;
-    background-color: cornflowerblue;
     width: 70%;
-    height: 800px;
+    height: 1500px;
 }
 
 .buttonlist{
@@ -37,4 +37,27 @@ h1 {
     width: 20%;
     height: 40px;
     font-size: larger;
+}
+
+.LLChart, #bar {
+    display: inline;
+    float: left;
+    margin: 15px;
+    height: 800px;
+    width: 65%;
+}
+.LLChart, #pie {
+    display: inline;
+    float: right;
+    margin: 15px;
+    margin-top: 10%;
+    height: 500px;
+    width: 30%;
+}
+.LLChart, #box {
+    display: block;
+    margin: 15px;
+    margin-top: 30px;
+    height: 600px;
+    width: 90%;
 }

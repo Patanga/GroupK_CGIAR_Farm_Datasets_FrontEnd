@@ -5,4 +5,10 @@ module.exports = function(app) {
         "target": "https://jsonkeeper.com/b",
         "changeOrigin": true,
     }))
+    
+  app.use(createProxyMiddleware('/dashboard', 
+    {
+        "target": "http://localhost:8080/api/data",
+        "changeOrigin": true,
+    }))
 }
