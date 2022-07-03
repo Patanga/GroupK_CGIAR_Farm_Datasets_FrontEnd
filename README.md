@@ -1,5 +1,5 @@
 # rhomis_dashboard_front-TEST
-The back-end of this project is [rhomis_dashboard_api-TEST](https://github.com/Michael-WZJ/rhomis_dashboard_api-TEST.git).
+The back-end of this project is [GroupK_CGIAR_Farm_Datasets_BackEnd](https://github.com/Patanga/GroupK_CGIAR_Farm_Datasets_BackEnd).
 
 # Getting Started with Create React App
 
