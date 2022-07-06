@@ -57,6 +57,8 @@ const Grouping = ({ options, optionLists, updateOptions }) => {
     const [lists, setLists] = useState(initLists);
     const [isLoading, setIsLoading] = useState(false);
 
+    const [foo, setFoo] = useState("hello");
+ 
     useEffect(() => {
         setIsLoading(true);
         const fetchData = async () => {
@@ -77,6 +79,15 @@ const Grouping = ({ options, optionLists, updateOptions }) => {
         updateOptions(newOptions)
     }
 
+    useEffect(() => {
+        updateOptions({
+            id_country: country.value ? country.value : '',
+            region: region.value ? region.value : '',
+            id_proj: project.value ? project.value : '',
+            income: income.value ? income.value : '',
+        })
+    },[country, region, project, income])
+
 
 
     return (
@@ -89,7 +100,7 @@ const Grouping = ({ options, optionLists, updateOptions }) => {
                         <Select className='select' defaultInputValue="Region" options={lists.regions} onChange={setRegion} />
                         <Select className='select' defaultInputValue="Project" options={lists.projects} onChange={setProject} />
                         <Select className='select' defaultInputValue="Income Category" options={initLists.income} onChange={setIncome} />
-                        <button className='groupingSearchButton' onClick={onClickSearchButton}>Search</button>
+                        {/* <button className='groupingSearchButton' onClick={onClickSearchButton}>Search</button> */}
                     </>
                     )
             }

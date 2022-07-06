@@ -7,7 +7,7 @@ import Livelihood from "./pages/Livelihood";
 const fetchDataset = async (config) => {
     try {
         const response = await axios.get('dashboard', config);
-        console.log("Success in fetching dataset")
+        console.log("Success in fetching dataset, length:" + response.data.length);
         // console.log(response.data)
         return response.data
     } catch (err) {
@@ -26,19 +26,6 @@ const Dashboard = () => {
     const [data, setData] = useState({});
 
 
-    // Second empty argument can let useEffect run Only Once
-    useEffect(() => {
-        const fetchData = async () => {
-            // setIsLoading(true);
-            let res = await fetchDataset();
-            console.log("fetchData success in useEffect.")
-            console.log(res);
-            setData(res);
-        };
-        fetchData();
-    }, []);
-
-
     const setState = (newState, changeStateFn, callback) => {
         changeStateFn((state) => {
             if (state.constructor === Object) {
@@ -54,15 +41,15 @@ const Dashboard = () => {
 
     const updateOptions = async (newOptions) => {
         setState(newOptions, setOptions, (e) => {
-            console.log('Options updated')
+            console.log('Options updated:')
+            console.log(newOptions)
         })
         let config = {
             params: newOptions
         }
-        const newdata = await fetchDataset(config);
         console.log("old data length:" + data.length)
+        const newdata = await fetchDataset(config);
         setData(newdata);
-        console.log("new data length:" + data.length)
         // setState(newdata, setData, (e) => {
         //     console.log('Data updated using new options')
         //     console.log(newdata)

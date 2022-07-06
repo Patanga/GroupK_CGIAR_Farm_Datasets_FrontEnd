@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d0ee33e-9615-4082-9239-5fe9b8618dd9" name="变更" comment="" />
+    <list default="true" id="2d0ee33e-9615-4082-9239-5fe9b8618dd9" name="变更" comment="Workable front-end react app for experimental back-end dashboard api.&#10;Only LL page and grouping feature implemented.">
+      <change afterPath="$PROJECT_DIR$/src/charts/livelihood/bar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/charts/livelihood/box.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/charts/livelihood/pie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/___.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/charts/bar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/charts/box.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/charts/pie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_processors/livelihood.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processors/livelihood.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grouping.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/grouping.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,21 +24,35 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="EYang" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="Workable front-end react app for experimental back-end dashboard api.&#10;Only LL page and grouping feature implemented." />
+        <option name="rewordedMessage" value="Workable front-end react app for experimental back-end dashboard api.&#10;Only LL page and grouping feature implemented." />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="54c82596d784b4992a557ea288de62cee1c718a8" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2AxZBO0XNWRlmW9AIOlWGY4dW67" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -65,7 +93,19 @@
       <workItem from="1656382189104" duration="583000" />
       <workItem from="1656468737653" duration="175000" />
       <workItem from="1656468932473" duration="274000" />
+      <workItem from="1656637044468" duration="834000" />
+      <workItem from="1656771702465" duration="542000" />
+      <workItem from="1656896402547" duration="888000" />
+      <workItem from="1657093119214" duration="656000" />
     </task>
+    <task id="LOCAL-00001" summary="Workable front-end react app for experimental back-end dashboard api.&#10;Only LL page and grouping feature implemented.">
+      <created>1656599989152</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1656599989152</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -82,7 +122,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="EYang" />
                       </list>
                     </value>
                   </entry>
@@ -93,5 +133,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Workable front-end react app for experimental back-end dashboard api.&#10;Only LL page and grouping feature implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="Workable front-end react app for experimental back-end dashboard api.&#10;Only LL page and grouping feature implemented." />
   </component>
 </project>

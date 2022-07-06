@@ -1,4 +1,3 @@
-
 // Total Value of Activities
 // Stacked bar chart
 const appendTVA = (doc) => {
