@@ -2,15 +2,13 @@ import React, {Component, useEffect, useState} from "react";
 import axios from 'axios'
 //import { Switch, Route, Link } from "react-router-dom";
 //import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-
-// 布局组件
-import Display from "./components/display";
+//import "./App.css";
+import './css/Dashboard.css'
 
 // 筛选组件（topic & grouping）
 import Groupings from "./components/groupings"
 
-// Dashboard - 各页面组件 - @睿
+// Dashboard - 各页面组件
 import MainPage from "./topics/MainPage";
 import Livelihood from "./topics/Livelihood";
 import FoodSecurity from "./topics/FoodSecurity";
@@ -18,11 +16,10 @@ import Crops from "./topics/Crops";
 import Livestock from "./topics/Livestock";
 import OffFarmIncome from "./topics/OffFarmIncome";
 
-// 拉取数据 - TODO - url要改
-// TODO - 每切一个页面就fetch一次么
+// 拉取数据
 const fetchDataset = async (config) => {
     try {
-        const response = await axios.get('dashboard', config);
+        const response = await axios.get('/data/all_pages', config);
         console.log("Success in fetching dataset")
         return response.data
     } catch (err) {
@@ -34,7 +31,11 @@ const fetchDataset = async (config) => {
 const App = () => {
     // The default setting/state of dashboard
     // Hook - useState : https://zh-hans.reactjs.org/docs/hooks-reference.html#usestate
-    const [options, setOptions] = useState(
+
+    // Set up Grouping Options
+    // TODO - 这个钩子是要在grouping逻辑之后使用的,grouping
+    // TODO - @睿哥 grouping逻辑需要能输出这四个string给到钩子用
+    const [groupingOptions, setGroupingOptions] = useState(
         {
             country: '',
             subRegion: '',
@@ -42,8 +43,10 @@ const App = () => {
             incomeCategory: '',
         }
     );
+    // Set up Current Page
     const [currentPage, setCurrentPage] = useState('MainPage');
-    const [data, setData] = useState({});
+    // Set up data (from all_pages)
+    const [data, setData] = useState([]);
 
     // To make side effect happen - In this case, side effect is to fetch data
     // Hook - useEffect : https://zh-hans.reactjs.org/docs/hooks-reference.html#useeffect
@@ -54,11 +57,10 @@ const App = () => {
             console.log(res);
             setData(res);
         };
-        fetchData();
+        fetchData(); // TODO - 不写也处于已经调用的状态了吧
     },[]); // [] is to let useEffect run Only Once
 
     // To define setState
-    // 为啥要分Object和Array两种情况呀 - 抄回来的，跟深拷贝浅拷贝有关系
     const setState = (newState, changeStateFunction, callback) => {
         changeStateFunction((state) => {
             if (state.constructor === Object) {
@@ -73,14 +75,18 @@ const App = () => {
     }
 
     // Countries变动的时候同时改动subRegions
+    // TODO - Merge睿哥的组件
+    // TODO - 返回Grouping的useState
     const updateOptions = async (newOptions) => {
-        setState(newOptions, setOptions, (e)=> {
+        setState(newOptions, setGroupingOptions, (e)=> {
             console.log('Options updated')
         })
         let config = {
             params: newOptions
         }
-        // TODO - 改为从API已返回的数据里面读取
+
+        // TODO - 改为从API已返回的数据里面 - filter过后的数据
+        // 这个应该要拆出来写，不要放在updateOptions里面
         const  newData = await fetchDataset(config);
 
         console.log("old data length: " + data.length)
@@ -93,6 +99,7 @@ const App = () => {
             <main className = "container">
                 <div className = "dashboard__box">
                     <div className="tmpPageContainer">
+                        {/*切换不同Topics的页面*/}
                         {currentPage === 'MainPage' && <MainPage data={data} />}
                         {currentPage === 'Livelihood' && <Livelihood data={data}/>}
                         {currentPage === 'FoodSecurity' && <FoodSecurity data={data}/>}
@@ -100,14 +107,6 @@ const App = () => {
                         {currentPage === 'Livestock' && <Livestock data={data}/>}
                         {currentPage === 'OffFarmIncome' && <OffFarmIncome data={data}/>}
                     </div>
-                    <Display
-                        /*TODO - Dashboard import
-                        *  allDashboard期望： 接收topic(形式：api and eChart?)和grouping信息
-                        *  渲染图表
-                        *  暂时用不着这个组件
-                        * */
-                        /*allDashboard={}*/
-                    />
                     <div className="topics">
                         <div className="topicsList">
                             <button
@@ -148,9 +147,13 @@ const App = () => {
                             </button>
                         </div>
                     </div>
-                    <Groupings options={options}
-                               updateOptions={updateOptions}
-                    />
+                    {/*<Groupings options={groupingOptions}*/}
+                    {/*           updateOptions={updateOptions}*/}
+                    {/*/>*/}
+                    {/*
+                    再加一个确认的按钮？
+                    Grouping这里应当返回一些能用来filter的东西
+                    */}
                 </div>
             </main>
         </div>

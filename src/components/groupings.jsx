@@ -1,6 +1,6 @@
 import React, {Component, useEffect, useState} from "react";
 
-import Select from 'react-select';
+//import Select from 'react-select'; // 没加到package里面
 import axios from "axios";
 
 import { CountryList, subRegionList, projectList } from "../groupingSample/groupingSample";
@@ -24,10 +24,13 @@ const initialLists = {
 }
 
 // Get Grouping List onclick
+// 其实不需要重复getGroupingList/跟后端要数据啊
+// 可以直接在App.js里面直接把groupingList给弄出来了
 const getGroupingList = async () => {
     try {
-        // TODO - 需要后端提供格式如groupingSample一样的GroupingList
-        const grouping = await axios.get('http://localhost:8080/api/data/groupinglists/');
+        // TODO - 需要把从all_pages返回的数据处理成如groupingSample一样的GroupingList
+        // TODO - 检查睿哥分支上的代码
+        const grouping = await axios.get('http://localhost:8080/api/data/all_pages/');
         console.log("Success in fetching Grouping Lists")
         return {
             grouping

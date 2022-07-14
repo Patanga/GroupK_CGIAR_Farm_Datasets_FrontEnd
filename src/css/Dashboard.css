@@ -1,0 +1,82 @@
+/*
+WORKING IN PROGRESS
+*/
+
+.dashboard {
+    margin-top: 2%;
+    /* background-color: aquamarine; */
+    display: grid;
+    grid-template-columns: 300px repeat(5, 1fr);
+    grid-template-rows: repeat(2, 100px) repeat(5, 250px);
+    grid-gap: 10px;
+}
+
+.grouping {
+    grid-row: 1/6;
+    padding: 5px;
+    /* background-color: rgb(130, 101, 76); */
+}
+
+.container {
+    align-content: center;
+    width: 90%;
+    padding: 1%;
+    grid-column: 2/7;
+    grid-row: 1/8;
+    /* background-color: bisque; */
+}
+
+.select_container {
+    margin: 100px 1%;
+    /* background-color: cornflowerblue; */
+    padding: 2%;
+}
+
+.select {
+    margin: 20px 10px;
+}
+
+.navigator {
+    /* background-color: yellow; */
+    vertical-align: middle;
+    height: 70px;
+}
+
+.pagebutton {
+    text-align: center;
+    width: calc(100% / 6);
+    height: 100%;
+    display: inline-block;
+    font-size: x-large;
+}
+
+.page {
+    display: grid;
+    grid-template-rows: repeat(6, calc(100%/6));
+    grid-template-columns: repeat(7, calc(100%/7));
+    grid-gap: 10px;
+    padding: 1%;
+    width: 90%;
+    height: 90%;
+    /* background-color: aliceblue; */
+}
+
+.LLChart, #bar {
+    grid-column: 1/6;
+    grid-row:  1/5;
+    /* background-color: blanchedalmond; */
+}
+
+.LLChart, #pie {
+    grid-column: 6/8;
+    grid-row: 2/4;
+    vertical-align: top;
+    /* background-color: violet; */
+}
+
+.LLChart, #box {
+    margin-top: 20px;
+    grid-row: 5/7;
+    grid-column:1/8;
+    /* background-color: tomato; */
+}
