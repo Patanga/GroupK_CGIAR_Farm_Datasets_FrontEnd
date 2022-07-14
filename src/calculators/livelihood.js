@@ -1,18 +1,22 @@
-// Total Value of Activities
-// Stacked bar chart
-const appendTVA = (doc) => {
-    doc.api_tva =
-        doc.api_income_lstk_ppp_pd_pmae +
-        doc.api_income_crop_ppp_pd_pmae +
-        doc.api_income_offfarm_ppp_pd_pmae +
-        doc.api_cons_lstk_ppp_pd_pmae +
-        doc.api_cons_crop_ppp_pd_pmae;
-
-    return doc;
-}
 
 exports.getBarData = (data) => {
-    const barData = data.map(doc => appendTVA(doc));
+    const barData = data.map(doc => {
+        let newdoc = {
+            id_unique: 'Record Unique ID: ' + doc.id_unique,
+            incm_lstk: doc.api_income_lstk_ppp_pd_pmae,
+            incm_crop: doc.api_income_crop_ppp_pd_pmae,
+            incm_off: doc.api_income_offfarm_ppp_pd_pmae,
+            cons_lstk: doc.api_cons_lstk_ppp_pd_pmae,
+            cons_crop: doc.api_cons_crop_ppp_pd_pmae
+        }
+        newdoc.tva =
+            newdoc.incm_lstk
+            + newdoc.incm_crop
+            + newdoc.incm_off
+            + newdoc.cons_lstk
+            + newdoc.cons_crop;
+        return newdoc;
+    });
     return barData;
 }
 
@@ -21,14 +25,14 @@ exports.getPieData = (data) => {
     let _1to1_9_cnt = 0;
     let above_1_9_cnt = 0;
 
-    data.map(doc => {
-        if (doc.api_income_tot_ppp_pd_pmae >= 1.9) {
+    data.forEach(doc => {
+        if (doc.api_tot_ppp_income_pd_pmae >= 1.9) {
             above_1_9_cnt++;
         }
-        else if (doc.api_income_tot_ppp_pd_pmae >= 1) {
+        else if (doc.api_tot_ppp_income_pd_pmae >= 1) {
             _1to1_9_cnt++;
         }
-        else if (doc.api_income_tot_ppp_pd_pmae > 0) {
+        else if (doc.api_tot_ppp_income_pd_pmae > 0) {
             under_1_cnt++;
         }
         // Null value not counted
@@ -49,9 +53,9 @@ exports.getBoxData = (data) => {
     let incm_lstk_annual_arr = [];
     let incm_offfarm_annual_arr = [];
 
-    data.map(doc => {
+    data.forEach(doc => {
         const year = doc.year;
-        const days = (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) ? 366 : 365;
+        const days = ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) ? 366 : 365;
         cons_crop_annual_arr.push(doc.api_cons_crop_ppp_pd_pmae * days);
         cons_lstk_annual_arr.push(doc.api_cons_lstk_ppp_pd_pmae * days);
         incm_crop_annual_arr.push(doc.api_income_crop_ppp_pd_pmae * days);

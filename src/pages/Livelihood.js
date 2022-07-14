@@ -1,37 +1,41 @@
-import ReactECharts from 'echarts-for-react';
-import { getPieOption } from '../charts/livelihood/pie';
-import { getBarOption } from '../charts/livelihood/bar';
-import { getBoxOption } from '../charts/livelihood/box';
-import { getBarData, getPieData, getBoxData } from '../data_processors/livelihood';
+import { useEffect, useState } from 'react';
+import { getBarData, getPieData, getBoxData } from '../calculators/livelihood'
 
-// var bar = echarts.init(document.getElementById('stackedBar'));
-// var pie = echarts.init(document.getElementById('pie'));
-// var box = echarts.init(document.getElementById('boxWhisker'));
+import { getBarOption } from '../plotOptions/Livelihood/bar'
+import { getBoxOption } from '../plotOptions/Livelihood/box'
+import { getPieOption } from '../plotOptions/Livelihood/pie'
 
-const Livelihood = (data) => {
-    // console.log("Livelihood.js")
-    // console.log(data.data);
+// Encapsulation of echarts for react hook
+// To use ECharts component, just pass the option by props
+import Echart from '../useChart'
 
-    if(!data.data.length) {
-        return <h1>Sorry, no data in this group.</h1>
-    }
-    const barData = getBarData(data.data);
-    const pieData = getPieData(data.data);
-    const boxData = getBoxData(data.data);
-    
+export default function Livelihood(props) {
+    const [optionBar, setOptionBar] = useState({});
+    const [optionPie, setOptionPie] = useState({});
+    const [optionBox, setOptionBox] = useState({});
+
+    // When global dataset changes, update the charts options
+    useEffect(() => {
+        const setOptions = async () => {
+            setOptionBar(getBarOption(getBarData(props.data)));
+            setOptionPie(getPieOption(getPieData(props.data)));
+            setOptionBox(getBoxOption(getBoxData(props.data)));
+        }
+        setOptions();
+    }, [props.data])
+
     return (
         <>
+            <h2>Records: {props.data.length}</h2>
             <div className="LLChart" id='bar'>
-                <ReactECharts option={getBarOption(barData)} style={{ height: '100%', width: '100%', }} />
+                <Echart option={optionBar} />
             </div>
             <div className="LLChart" id='pie'>
-                <ReactECharts option={getPieOption(pieData)} style={{ height: '100%', width: '100%', }} />
+                <Echart option={optionPie} />
             </div>
             <div className="LLChart" id='box'>
-                <ReactECharts option={getBoxOption(boxData)} style={{ height: '100%', width: '100%', }} />
+                <Echart option={optionBox} />
             </div>
         </>
     )
-
 }
-export default Livelihood;

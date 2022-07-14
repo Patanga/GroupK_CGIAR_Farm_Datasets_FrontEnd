@@ -4,7 +4,7 @@ exports.getBarOption = (barData) => {
     return {
         title: {
             text: 'Total value of activities',
-            subtext: 'Global',
+            // subtext: 'Global',
             left: 'center'
         },
         tooltip: {
@@ -82,26 +82,26 @@ exports.getBarOption = (barData) => {
         dataset: [{
             dimensions: [
                 'id_unique',
-                'api_income_lstk_ppp_pd_pmae',
-                'api_income_crop_ppp_pd_pmae',
-                'api_income_offfarm_ppp_pd_pmae',
-                'api_cons_lstk_ppp_pd_pmae',
-                'api_cons_crop_ppp_pd_pmae',
-                'api_income_tot_ppp_pd_pmae',
-                'api_tva'
+                'incm_lstk',
+                'incm_crop',
+                'incm_off',
+                'cons_lstk',
+                'cons_crop',
+                'tva'
             ],
             source: barData
         },
         {
             transform: {
                 type: 'sort',
-                config: { dimension: 'api_tva', order: 'asc' }
+                config: { dimension: 'tva', order: 'asc' }
             }
         },
         ],
         series: [
+
             {
-                name: 'Crops Income',
+                name: 'Livestock Income',
                 type: 'bar',
                 stack: 's',
                 datasetIndex: 1,
@@ -110,7 +110,7 @@ exports.getBarOption = (barData) => {
                 }
             },
             {
-                name: 'Livestock Income',
+                name: 'Crops Income',
                 type: 'bar',
                 stack: 's',
                 datasetIndex: 1,
@@ -128,15 +128,6 @@ exports.getBarOption = (barData) => {
                 }
             },
             {
-                name: 'Crops Consumed',
-                type: 'bar',
-                stack: 's',
-                datasetIndex: 1,
-                emphasis: {
-                    focus: 'series'
-                }
-            },
-            {
                 name: 'Livestock Consumed',
                 type: 'bar',
                 stack: 's',
@@ -145,6 +136,16 @@ exports.getBarOption = (barData) => {
                     focus: 'series'
                 }
             },
+            {
+                name: 'Crops Consumed',
+                type: 'bar',
+                stack: 's',
+                datasetIndex: 1,
+                emphasis: {
+                    focus: 'series'
+                }
+            },
+
         ]
     }
 }
