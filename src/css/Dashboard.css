@@ -80,3 +80,8 @@ WORKING IN PROGRESS
     grid-column:1/8;
     /* background-color: tomato; */
 }
+
+#map {
+    height: 1000px;
+    width: 1300px;
+}

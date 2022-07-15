@@ -41,7 +41,7 @@ const formatLists = (list) => {
 const getGroupingLists = async (config) => {
     try {
         // Fetching data from db
-        const response = await axios.get('dashboard/groupinglists', config);
+        const response = await axios.get('http://localhost:8080/api/data/dashboard/groupinglists', config);
         console.log("Success in fetching Grouping Lists")
         return {
             ...initLists,
@@ -56,7 +56,7 @@ const getGroupingLists = async (config) => {
 
 const getDataset = async (config) => {
     try {
-        const response = await axios.get('dashboard/', config);
+        const response = await axios.get('http://localhost:8080/api/data/dashboard/', config);
         console.log("Success in fetching dataset, length:" + response.data.length);
         return response.data
     } catch (err) {
@@ -75,7 +75,7 @@ export default function Dashboard() {
     // Current grouping options
     const [option, setOption] = useState(initOption);
     // Default page selection
-    const [currentPage, setCurrentPage] = useState('ll');
+    const [currentPage, setCurrentPage] = useState('home');
     // Data loading state
     const [isLoading, setIsLoading] = useState(true);
 
