@@ -64,6 +64,16 @@ const getDataset = async (config) => {
     }
 }
 
+// Only for testing
+const updateDB = async () => {
+    try {
+        const response = await axios.get('http://localhost:8080/api/data/dashboard/update');
+        alert(response.data);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 export default function Dashboard() {
     // For the whole dataset of a query
     const [data, setData] = useState({});
@@ -113,6 +123,8 @@ export default function Dashboard() {
         <div className='dashboard'>
             <div className='grouping' >
                 <Grouping lists={lists} option={option} setOption={setOption} setExOp={setExOp} />
+                {/*Button for updating DB dashboard cache */}
+                <button id='button' onClick={updateDB}>Update DB cache</button>
             </div>
             <div className='container' >
                 <Navigator setCurrentPage={setCurrentPage} />

@@ -7,8 +7,8 @@ exports.getMapData = (data) => {
             region: doc.region,
             id_proj: doc.id_proj,
             id_form: doc.id_form,
-            gps_lat: parseFloat(doc.gps_lat),
-            gps_lon: parseFloat(doc.gps_lon),
+            gps_lat: doc.api_gps[0],
+            gps_lon: doc.api_gps[1],
         }
     });
     return mapData;
