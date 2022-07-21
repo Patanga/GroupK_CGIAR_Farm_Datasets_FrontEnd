@@ -6,7 +6,7 @@ import { buildCropLand, buildCropGrown, buildCropUsed, buildCropYields } from '.
 // import { getBoxOption } from '../plotOptions/Livelihood/box'
 // import { getPieOption } from '../plotOptions/Livelihood/pie'
 import { getCpGrown } from '../plotOptions/Crops/cpgrown'
-import { getCpLand } from '../plotOptions/Crops/cpland'
+//import { getCpLand } from '../plotOptions/Crops/cpland'
 import { getCpUsed } from '../plotOptions/Crops/cpused'
 import { getCpYields } from '../plotOptions/Crops/cpyields'
 
@@ -17,7 +17,7 @@ import Echart from '../useChart'
 
 export default function Livelihood(props) {
     const [optionCpGrown, setOptionCpGrown] = useState({});
-    const [optionCpLand, setOptionCpLand] = useState({});
+    //const [optionCpLand, setOptionCpLand] = useState({});
     const [optionCpUsed, setOptionCpUsed] = useState({});
     const [optionCpYields, setOptionCpYields] = useState({});
 
@@ -25,7 +25,7 @@ export default function Livelihood(props) {
     useEffect(() => {
         const setOptions = async () => {
             setOptionCpGrown(getCpGrown(buildCropGrown(props.data)));
-            setOptionCpLand(getCpLand(buildCropLand(props.data)));
+            //setOptionCpLand(getCpLand(buildCropLand(props.data)));
             setOptionCpUsed(getCpUsed(buildCropUsed(props.data)));
             setOptionCpYields(getCpYields(buildCropYields(props.data)));
         }
@@ -38,9 +38,9 @@ export default function Livelihood(props) {
             <div className="defaultChart">
                 <Echart option={optionCpGrown} />
             </div>
-            <div className="defaultChart">
-                <Echart option={optionCpLand} />
-            </div>
+            {/*<div>*/}
+            {/*    <Echart option={optionCpLand} />*/}
+            {/*</div>*/}
             <div className="defaultChart">
                 <Echart option={optionCpUsed} />
             </div>
