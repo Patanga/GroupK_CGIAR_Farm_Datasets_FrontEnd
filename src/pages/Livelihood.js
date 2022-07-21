@@ -20,6 +20,8 @@ export default function Livelihood(props) {
             setOptionBar(getBarOption(getBarData(props.data)));
             setOptionPie(getPieOption(getPieData(props.data)));
             setOptionBox(getBoxOption(getBoxData(props.data)));
+
+            console.log(optionBar);
         }
         setOptions();
     }, [props.data])

@@ -81,6 +81,10 @@ WORKING IN PROGRESS
     /* background-color: tomato; */
 }
 
+.defaultChart {
+    grid-column: 1/6;
+}
+
 #map {
     height: 1000px;
     width: 1300px;

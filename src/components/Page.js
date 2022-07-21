@@ -1,4 +1,8 @@
 import Livelihood from '../pages/Livelihood'
+import Livestock from '../pages/Livestock'
+import FoodSecurity from '../pages/FoodSecurity'
+import Crops from '../pages/Crops'
+import OffFarm from '../pages/OffFarm'
 import Home from '../pages/Home'
 
 export default function Page(props) {
@@ -9,10 +13,10 @@ export default function Page(props) {
             <div className='page'>
                 {props.currentPage === 'home' && <Home data={props.data}>Home</Home>}
                 {props.currentPage === 'll' && <Livelihood data={props.data}>Livelihood</Livelihood>}
-                {props.currentPage === 'fs' && <div>Food Securtiy</div>}
-                {props.currentPage === 'cr' && <div>Crops</div>}
-                {props.currentPage === 'lstk' && <div>Livestock</div>}
-                {props.currentPage === 'incm' && <div>Off Farm Incomes</div>}
+                {props.currentPage === 'fs' && <FoodSecurity data={props.data}>Food Security</FoodSecurity>}
+                {props.currentPage === 'cr' && <Crops data={props.data}>Crops</Crops>}
+                {props.currentPage === 'lstk' && <Livestock data={props.data}>Livestock</Livestock>}
+                {props.currentPage === 'incm' && <OffFarm data={props.data}>Off Farm Incomes</OffFarm>}
             </div>
     )
 }
