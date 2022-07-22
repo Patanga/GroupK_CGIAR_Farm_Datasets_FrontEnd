@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react';
-//import { getBarData, getPieData, getBoxData } from '../calculators/livelihood'
 import { count, buildHeadsData, buildUseData, buildBreedsData } from "../calculators/livestock"
 
-// import { getBarOption } from '../plotOptions/Livelihood/bar'
-// import { getBoxOption } from '../plotOptions/Livelihood/box'
-// import { getPieOption } from '../plotOptions/Livelihood/pie'
 import { getLsBreedsOption } from "../plotOptions/Livestock/lsbreeds"
 import { getLsFrequencyOption } from "../plotOptions/Livestock/lsfrequency"
 import { getLsHeadsOption } from "../plotOptions/Livestock/lsheads"
@@ -27,8 +23,6 @@ export default function Livestock(props) {
             setOptionLsFrequency(getLsFrequencyOption(count(props.data, "Frequency")));
             setOptionLsHeads(getLsHeadsOption(buildHeadsData(props.data)));
             setOptionLsUsages(getLsUsagesOption(buildUseData(props.data)));
-
-            console.log(optionLsBreeds);
         }
         setOptions();
     }, [props.data])

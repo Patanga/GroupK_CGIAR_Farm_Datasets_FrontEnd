@@ -1,258 +1,56 @@
-import ReactECharts from 'echarts-for-react';
+import { useEffect, useState } from 'react';
 import {count, buildFoodShortageData, buildHDDSData, buildFoodConsumedData} from '../calculators/foodSecurity'
 
-const FoodSecurity = (dataProps) => {
+import { getFsHFIASOption } from "../plotOptions/FoodSecurity/fshfias"
+import { getFsFoodShortageOption } from "../plotOptions/FoodSecurity/fsfoodshortage"
+import { getFsHDDSOption } from "../plotOptions/FoodSecurity/fshdds"
+import { getFsFoodConsumedOption } from "../plotOptions/FoodSecurity/fsfoodconsumed"
 
-    if(!dataProps.data.length) {
-        return <h1>Sorry, no data in this group.</h1>
-    }
+// Encapsulation of echarts for react hook
+// To use ECharts component, just pass the option by props
+import Echart from '../useChart'
 
-    // Options - 需要分离出来放到plotOptions里面
-    const getOptionOfHFIAS = (data) =>{
-        return ({
-            tooltip: {
-                trigger: "item",
-                formatter: "{c} ({d}%)"
-            },
-            legend: {
-                top: "5%",
-                left: "center"
-            },
-            series: [{
-                data: data,
-                type: "pie",
-                radius: ["40%", "70%"],
-                avoidLabelOverlap: false,
-                itemStyle: {
-                    borderRadius: 5,
-                    borderColor: '#fff',
-                    borderWidth: 2
-                },
-                label: {
-                    show: false,
-                    position: "center",
-                },
-                emphasis: {
-                    label: {
-                        show: true,
-                        fontSize: "1rem",
-                        fontWeight: "bold"
-                    }
-                },
-                labelLine: {
-                    show: false
-                }
-            }]
-        });
-    }
+export default function FoodSecurity(props) {
+    const [optionFsHFIAS, setOptionFsHFIAS] = useState({});
+    const [optionFsFoodShortage, setOptionFsFoodShortage] = useState({});
+    const [optionFsHDDS, setOptionFsHDDS] = useState({});
+    const [optionFsFoodConsumed, setOptionFsFoodConsumed] = useState({});
 
-    const getOptionOfFoodShortage = (data) => {
-        if (data === null) {
-            return ({
-                xAxis: {
-                    type: "category",
-                    data: [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
-                },
-                yAxis: {
-                    type: "value"
-                },
-                series: [ {type: "bar"} ]
-            });
-        } else {
-            const ave = data.average.toFixed(2);
-            let aveText = "average number of months with food shortage: " + ave;
-            return ({
-                title: {
-                    text: "",
-                    subtext: aveText
-                },
-                tooltip: {},
-                dataset: {
-                    source: data.dataset
-                },
-                xAxis: {
-                    type: "category"
-                },
-                yAxis: {
-                    type: "value"
-                },
-                series: [ {type: "bar"} ]
-            });
+    // When global dataset changes, update the charts options
+    useEffect(() => {
+        const setOptions = async () => {
+            setOptionFsHFIAS(getFsHFIASOption(count(props.data, "HFIAS")));
+            setOptionFsFoodShortage(getFsFoodShortageOption(buildFoodShortageData(props.data)));
+            setOptionFsHDDS(getFsHDDSOption(buildHDDSData(props.data)));
+            setOptionFsFoodConsumed(getFsFoodConsumedOption(buildFoodConsumedData(props.data)));
         }
-    }
+        setOptions();
+    }, [props.data])
 
-    const getOptionOfHDDS = (data) => {
-        let xMap = {
-            0: "Lean Season",
-            1: "Flush Season",
-        }
-        return ({
-            dataset: [
-                {
-                    source: data
-                },
-                {
-                    fromDatasetIndex: 0,
-                    transform: {
-                        type: 'boxplot',
-                        config: { itemNameFormatter: (data) => xMap[data.value] }
-                    }
-                },
-                {
-                    fromDatasetIndex: 1,
-                    fromTransformResult: 1
-                }
-            ],
-            tooltip: {
-                trigger: 'item',
-                axisPointer: {
-                    type: 'shadow'
-                }
-            },
-            xAxis: {
-                type: 'category',
-                boundaryGap: true,
-                nameGap: 30,
-                splitArea: {
-                    show: false
-                },
-                splitLine: {
-                    show: false
-                }
-            },
-            yAxis: {
-                type: 'value',
-                name: 'Score',
-                splitArea: {
-                    show: true
-                }
-            },
-            series: [
-                {
-                    name: 'boxplot',
-                    type: 'boxplot',
-                    datasetIndex: 1
-                },
-                {
-                    name: 'outlier',
-                    type: 'scatter',
-                    datasetIndex: 2
-                }
-            ]
-        })
-    }
-
-    const getOptionOfFoodConsumed = (data) => {
-        if (data.length === 0) {
-            return ({
-                xAxis: {
-                    type: "category",
-                    data: ['eggs', 'fruits', 'grainsrootstubers', 'legumes', 'meat',
-                        'milk_dairy', 'nuts_seeds', 'veg_leafy', 'vegetables', 'vita_veg_fruit'],
-                    axisLabel: { interval: 0, rotate: 45 }
-                },
-                yAxis: {
-                    type: "value"
-                },
-                series: [
-                    {name: "Lean Season", type: "bar"},
-                    {name: "Flush Season", type: "bar"}
-                ]
-            });
-        } else {
-            return ({
-                tooltip: {
-                    trigger: "axis",
-                    axisPointer: {type: "shadow"}
-                },
-                legend: {},
-                dataset: {
-                    source: data
-                },
-                xAxis: {
-                    type: "category",
-                    axisLabel: { interval: 0, rotate: 45 }
-                },
-                yAxis: {
-                    type: "value"
-                },
-                series: [
-                    {name: "Lean Season", type: "bar"},
-                    {name: "Flush Season", type: "bar"}
-                ]
-            });
-        }
-
-    }
 
     // return ECharts
     return (
         <>
+            <h2>Records: {props.data.length}</h2>
             <div className="defaultChart">
                 <h4>HFIAS</h4>
-                {count.length !== 0 ?
-                    (<div>
-                        <ReactECharts
-                            option={getOptionOfHFIAS(count(dataProps.data, "HFIAS"))}
-                        />
-                    </div>) :
-                    (<div>
-                        <p>Processing ...</p>
-                        <ReactECharts
-                            option={getOptionOfHFIAS(count(dataProps.data, "HFIAS"))}
-                        />
-                    </div>)}
+                <Echart option={optionFsHFIAS} />
             </div>
 
             <div className="defaultChart">
                 <h4>Food Shortage</h4>
-                {buildFoodShortageData !== null ?
-                    (<div>
-                        <ReactECharts
-                            option={getOptionOfFoodShortage(buildFoodShortageData(dataProps.data))}
-                        />
-                    </div>) :
-                    (<div>
-                        <p>Processing ...</p>
-                        <ReactECharts
-                            option={getOptionOfFoodShortage(buildFoodShortageData(dataProps.data))}
-                        />
-                    </div>)}
+                <Echart option={optionFsFoodShortage} />
             </div>
 
             <div className="defaultChart">
                 <h4>HDDS</h4>
-                {buildHDDSData.length !== 0 ?
-                    (<div>
-                        <ReactECharts
-                            option={getOptionOfHDDS(buildHDDSData(dataProps.data))}
-                        />
-                    </div>) :
-                    (<div>
-                        <p>Processing ...</p>
-                        <ReactECharts
-                            option={getOptionOfHDDS(buildHDDSData(dataProps.data))}
-                        />
-                    </div>)}
+                <Echart option={optionFsHDDS} />
             </div>
 
             <div className="defaultChart">
                 <h4>Food Consumed</h4>
-                {buildFoodConsumedData.length !== 0 ?
-                    (<div>
-                        <ReactECharts
-                            option={getOptionOfFoodConsumed(buildFoodConsumedData(dataProps.data))}
-                        />
-                    </div>) :
-                    (<div>
-                        <p>Processing ...</p>
-                        <ReactECharts
-                            option={getOptionOfFoodConsumed(buildFoodConsumedData(dataProps.data))}
-                        />
-                    </div>)}
+                <Echart option={optionFsFoodConsumed} />
             </div>
         </>
     )
 }
-export default FoodSecurity;
