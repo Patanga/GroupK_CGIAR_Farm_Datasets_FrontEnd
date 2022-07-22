@@ -9,6 +9,7 @@ import { getLsUsagesOption } from "../plotOptions/Livestock/lsusages"
 // Encapsulation of echarts for react hook
 // To use ECharts component, just pass the option by props
 import Echart from '../useChart'
+import Alert from "react-bootstrap/Alert";
 
 export default function Livestock(props) {
     const [optionLsBreeds, setOptionLsBreeds] = useState({});
@@ -29,7 +30,9 @@ export default function Livestock(props) {
 
     return (
         <>
-            <h2>Records: {props.data.length}</h2>
+            <Alert key='success'>
+                Records: {props.data.length}
+            </Alert>
             <div className="defaultChart">
                 <Echart option={optionLsBreeds} />
             </div>

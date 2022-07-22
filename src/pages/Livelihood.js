@@ -5,6 +5,7 @@ import { getBarOption } from '../plotOptions/Livelihood/bar'
 import { getBoxOption } from '../plotOptions/Livelihood/box'
 import { getPieOption } from '../plotOptions/Livelihood/pie'
 
+import Alert from 'react-bootstrap/Alert';
 // Encapsulation of echarts for react hook
 // To use ECharts component, just pass the option by props
 import Echart from '../useChart'
@@ -28,14 +29,16 @@ export default function Livelihood(props) {
 
     return (
         <>
-            <h2>Records: {props.data.length}</h2>
-            <div className="LLChart" id='bar'>
+            <Alert key='success'>
+                Records: {props.data.length}
+            </Alert>
+            <div className="defaultChart">
                 <Echart option={optionBar} />
             </div>
-            <div className="LLChart" id='pie'>
+            <div className="defaultChart">
                 <Echart option={optionPie} />
             </div>
-            <div className="LLChart" id='box'>
+            <div className="defaultChart">
                 <Echart option={optionBox} />
             </div>
         </>

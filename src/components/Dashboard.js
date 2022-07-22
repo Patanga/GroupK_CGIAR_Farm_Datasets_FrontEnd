@@ -5,6 +5,11 @@ import Navigator from './Navigator'
 import Grouping from './Grouping'
 import Page from './Page'
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from "react-bootstrap/Button";
+
 const initLists = {
     countries: [
         { value: '', label: 'Global' }
@@ -120,16 +125,24 @@ export default function Dashboard() {
     }, [isLoading])
 
     return (
-        <div className='dashboard'>
-            <div className='grouping' >
-                <Grouping lists={lists} option={option} setOption={setOption} setExOp={setExOp} />
-                {/*Button for updating DB dashboard cache */}
-                <button id='button' onClick={updateDB}>Update DB cache</button>
+        <Container>
+            <div className='dashboard'>
+                <Row>
+                <Col xs={3}>
+                    {/*<div className='grouping' >*/}
+                        <Grouping lists={lists} option={option} setOption={setOption} setExOp={setExOp} />
+                        {/*Button for updating DB dashboard cache */}
+                        <Button variant="outline-dark" onClick={updateDB}>Update DB cache</Button>
+                    {/*</div>*/}
+                </Col>
+                <Col xs={9}>
+                    {/*<div className='container' >*/}
+                        <Navigator setCurrentPage={setCurrentPage} />
+                        <Page data={data} currentPage={currentPage} isLoading={isLoading} />
+                    {/*</div>*/}
+                </Col>
+                </Row>
             </div>
-            <div className='container' >
-                <Navigator setCurrentPage={setCurrentPage} />
-                <Page data={data} currentPage={currentPage} isLoading={isLoading} />
-            </div>
-        </div>
+        </Container>
     )
 }
