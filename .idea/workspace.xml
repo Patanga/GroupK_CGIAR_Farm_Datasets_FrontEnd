@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2d0ee33e-9615-4082-9239-5fe9b8618dd9" name="变更" comment="变更">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Crops.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Crops.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/OffFarm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/OffFarm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plotOptions/Home/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/plotOptions/Home/map.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +91,8 @@
       <workItem from="1656896402547" duration="888000" />
       <workItem from="1657093119214" duration="3127000" />
       <workItem from="1658428283352" duration="1897000" />
-      <workItem from="1658477323795" duration="4904000" />
+      <workItem from="1658477323795" duration="5863000" />
+      <workItem from="1658502398895" duration="320000" />
     </task>
     <task id="LOCAL-00001" summary="Workable front-end react app for experimental back-end dashboard api.&#10;Only LL page and grouping feature implemented.">
       <created>1656599989152</created>

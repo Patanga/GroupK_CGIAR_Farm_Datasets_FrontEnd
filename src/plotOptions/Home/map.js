@@ -10,7 +10,7 @@ export function updateMap(dataset) {
             return;
         }
         L.circle([e.gps_lat, e.gps_lon], {
-            radius: 100000,
+            radius: 1000,
             opacity: 0.4,
             color: '#ff4500'
         }).addTo(map).bindPopup('Unique ID: ' + e.id_unique +
