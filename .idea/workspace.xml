@@ -5,29 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d0ee33e-9615-4082-9239-5fe9b8618dd9" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/src/calculators/crops.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/calculators/foodSecurity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/calculators/livestock.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/calculators/offfarm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Crops.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/FoodSecurity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Livestock.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/OffFarm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plotOptions/Crops/cpgrown.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plotOptions/Crops/cpused.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plotOptions/Livestock/lsbreeds.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plotOptions/Livestock/lsfrequency.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plotOptions/Livestock/lsheads.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plotOptions/Livestock/lsusages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plotOptions/OffFarm/offfarmactivities.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plotOptions/OffFarm/offfarmincome.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plotOptions/OffFarm/offfarmmonth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plotOptions/OffFarm/offfarmusage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/plotOptions/Crops/cpland.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Livelihood.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Livelihood.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/calculators/crops.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculators/crops.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Crops.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Crops.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,12 +45,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "//wsl$/Ubuntu-20.04/home/huiying/GroupK_CGIAR_Farm_Datasets_FrontEnd",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl$/Ubuntu-20.04/home/huiying/GroupK_CGIAR_Farm_Datasets_FrontEnd&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -105,6 +91,8 @@
       <workItem from="1656771702465" duration="542000" />
       <workItem from="1656896402547" duration="888000" />
       <workItem from="1657093119214" duration="3127000" />
+      <workItem from="1658428283352" duration="1897000" />
+      <workItem from="1658477323795" duration="794000" />
     </task>
     <task id="LOCAL-00001" summary="Workable front-end react app for experimental back-end dashboard api.&#10;Only LL page and grouping feature implemented.">
       <created>1656599989152</created>

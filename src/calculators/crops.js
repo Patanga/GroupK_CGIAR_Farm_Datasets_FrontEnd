@@ -7,7 +7,7 @@ exports.buildCropLand=(dataForAPIList)=>{
         if(i_landcultivated==null||i_landcultivated<0){
             continue
         }
-        histogramData.push(i_landcultivated)
+        histogramData.push([i_landcultivated])
     }
     return histogramData
 }
@@ -146,7 +146,7 @@ exports.buildCropUsed=(dataForAPIList)=>{
 exports.buildCropYields=(dataForAPIList)=>{
     var cropName = [];
     var yields = [];
-    for(i in dataForAPIList){
+    for(var i in dataForAPIList){
         if(dataForAPIList[i].api_name_yield1[0]!=null){
             cropName.push(dataForAPIList[i].api_name_yield1[0]);
         }
