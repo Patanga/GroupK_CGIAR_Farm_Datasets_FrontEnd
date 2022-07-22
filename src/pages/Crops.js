@@ -1,12 +1,6 @@
 import { useEffect, useState } from 'react';
-//import { getBarData, getPieData, getBoxData } from '../calculators/livelihood'
-import {transform} from 'echarts-stat';
-//echarts.registerTransform(ecStat.transform.histogram);
 import { buildCropLand, buildCropGrown, buildCropUsed, buildCropYields } from '../calculators/crops'
 
-// import { getBarOption } from '../plotOptions/Livelihood/bar'
-// import { getBoxOption } from '../plotOptions/Livelihood/box'
-// import { getPieOption } from '../plotOptions/Livelihood/pie'
 import { getCpGrown } from '../plotOptions/Crops/cpgrown'
 import { getCpLand } from '../plotOptions/Crops/cpland'
 import { getCpUsed } from '../plotOptions/Crops/cpused'

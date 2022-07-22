@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react';
-//import { getBarData, getPieData, getBoxData } from '../calculators/livelihood'
 import { buildOffFarmIncome, buildOffFarmMonth, buildOffFarmActivity, buildOffFarmUsage } from '../calculators/offfarm'
 
-// import { getBarOption } from '../plotOptions/Livelihood/bar'
-// import { getBoxOption } from '../plotOptions/Livelihood/box'
-// import { getPieOption } from '../plotOptions/Livelihood/pie'
 import { getOffIncomeOption } from '../plotOptions/OffFarm/offfarmincome'
 import { getOffMonthOption } from '../plotOptions/OffFarm/offfarmmonth'
 import { getOffActivityOption } from '../plotOptions/OffFarm/offfarmactivities'
