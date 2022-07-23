@@ -7,15 +7,8 @@
     <list default="true" id="2d0ee33e-9615-4082-9239-5fe9b8618dd9" name="变更" comment="变更">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Grouping.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Grouping.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/Dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/Dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Crops.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Crops.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/FoodSecurity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/FoodSecurity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Livelihood.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Livelihood.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Livestock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Livestock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/OffFarm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/OffFarm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +96,7 @@
       <workItem from="1658502398895" duration="916000" />
       <workItem from="1658514223470" duration="1996000" />
       <workItem from="1658523146582" duration="8752000" />
-      <workItem from="1658572968357" duration="9376000" />
+      <workItem from="1658572968357" duration="12021000" />
     </task>
     <task id="LOCAL-00001" summary="Workable front-end react app for experimental back-end dashboard api.&#10;Only LL page and grouping feature implemented.">
       <created>1656599989152</created>

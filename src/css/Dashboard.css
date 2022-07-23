@@ -34,6 +34,16 @@
     padding: 30px 0;
 }
 
+.navigator {
+    border-radius: 10px;
+    background-color: #2f0c39;
+    margin: -16px 0 0 0;
+}
+
+.navFont {
+    color:white;
+}
+
 .cache {
     margin: 20px 0 0 0;
 }
@@ -43,10 +53,14 @@
     /*max-width: max-content;*/
 }
 
-.dashboardBody{
-    background-color: #f1f1f1;
+.dashboardBody {
+    /*background-color: #f1f1f1;*/
     padding: 20px 20px 20px 20px;
     border-radius: 25px;
+}
+
+.chartsContainer {
+   width: 100%;
 }
 
 /* Copy from old version */
@@ -67,4 +81,5 @@
 .defaultChart {
     height: 400px;
     width: 600px;
+    margin: 20px 20px 20px 20px;
 }

@@ -126,9 +126,19 @@ export default function Dashboard() {
 
     return (
         <Container>
-            <div className='header'>
-                <h1>Rhomis Dashboard v1.0</h1>
-            </div>
+            <Row>
+                <Col xs={4}>
+                    <div className='header'>
+                    <h1>Rhomis Dashboard v1.0</h1>
+                    </div>
+                </Col>
+
+                <Col>
+                    <div className='navigator'>
+                        {/*<Navigator setCurrentPage={setCurrentPage} />*/}
+                    </div>
+                </Col>
+            </Row>
 
             <div className='dashboard'>
                 <Row>
@@ -141,10 +151,14 @@ export default function Dashboard() {
 
                 </Col>
                 <Col xs={9} className='dashboardBody'>
-                    <Navigator setCurrentPage={setCurrentPage} />
-                    {/*<div className='container' >*/}
-                        <Page data={data} currentPage={currentPage} isLoading={isLoading} />
-                    {/*</div>*/}
+                    <div>
+                        <div className='navigator'>
+                            <Navigator setCurrentPage={setCurrentPage} />
+                        </div>
+                        <div className='chartsContainer' >
+                            <Page data={data} currentPage={currentPage} isLoading={isLoading} />
+                        </div>
+                    </div>
                 </Col>
                 </Row>
             </div>
