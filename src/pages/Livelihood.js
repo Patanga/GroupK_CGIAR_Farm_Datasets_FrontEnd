@@ -29,7 +29,7 @@ export default function Livelihood(props) {
 
     return (
         <>
-            <Alert key='success'>
+            <Alert key='success' className='dataLength'>
                 Records: {props.data.length}
             </Alert>
             <div className="defaultChart">

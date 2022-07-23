@@ -30,7 +30,7 @@ export default function Livestock(props) {
 
     return (
         <>
-            <Alert key='success'>
+            <Alert key='success' className='dataLength'>
                 Records: {props.data.length}
             </Alert>
             <div className="defaultChart">

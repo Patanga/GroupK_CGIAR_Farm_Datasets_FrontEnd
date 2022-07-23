@@ -3,6 +3,7 @@ import { getMapData } from "../calculators/home";
 import { renderMapTile, updateMap } from '../plotOptions/Home/map'
 
 import "leaflet/dist/leaflet.css";
+import Alert from "react-bootstrap/Alert";
 
 export default function Home(props) {
     const [mapData, setMapData] = useState([]);
@@ -28,7 +29,9 @@ export default function Home(props) {
     }, [mapData])
 
     return <div>
-        <h3>Records: {mapData.length}</h3>
+        <Alert key='dark' className='dataLength'>
+            Records: {mapData.length}
+        </Alert>
         <div id="map" className="map-container"></div>
     </div>
 }

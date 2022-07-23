@@ -6,6 +6,49 @@
     margin-right: 1rem;
 }
 
+/* Copy from CGIAR */
+.groupings {
+    display: flex;
+    align-items: center;
+    padding: 20px 20px 20px 20px;
+    /*border-style:solid;*/
+    /*border-width:3px;*/
+    /*border-color: #ffc84f;*/
+    border-radius: 25px;
+    background-color: #2f0c39;
+}
+
+.grouping {
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+}
+
+.groupingFont {
+    color: white;
+}
+
+.header {
+    letter-spacing: -.2rem;
+    color: #ffc84f;
+    line-height: 1em;
+    padding: 30px 0;
+}
+
+.cache {
+    margin: 20px 0 0 0;
+}
+
+.dataLength {
+    margin: 10px 10px 10px 0px;
+    /*max-width: max-content;*/
+}
+
+.dashboardBody{
+    background-color: #f1f1f1;
+    padding: 20px 20px 20px 20px;
+    border-radius: 25px;
+}
+
 /* Copy from old version */
 .container {
     align-content: center;

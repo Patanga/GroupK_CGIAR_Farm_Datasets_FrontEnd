@@ -126,18 +126,23 @@ export default function Dashboard() {
 
     return (
         <Container>
+            <div className='header'>
+                <h1>Rhomis Dashboard v1.0</h1>
+            </div>
+
             <div className='dashboard'>
                 <Row>
                 <Col xs={3}>
-                    {/*<div className='grouping' >*/}
+                    <div className='groupings' >
                         <Grouping lists={lists} option={option} setOption={setOption} setExOp={setExOp} />
+                    </div>
                         {/*Button for updating DB dashboard cache */}
-                        <Button variant="outline-dark" onClick={updateDB}>Update DB cache</Button>
-                    {/*</div>*/}
+                    <Button  className='cache' variant="outline-dark" onClick={updateDB}>Update DB cache</Button>
+
                 </Col>
-                <Col xs={9}>
+                <Col xs={9} className='dashboardBody'>
+                    <Navigator setCurrentPage={setCurrentPage} />
                     {/*<div className='container' >*/}
-                        <Navigator setCurrentPage={setCurrentPage} />
                         <Page data={data} currentPage={currentPage} isLoading={isLoading} />
                     {/*</div>*/}
                 </Col>
