@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import api from '../api'
 import '../css/Dashboard.css'
 import Navigator from './Navigator'
 import Grouping from './Grouping'
@@ -46,7 +46,7 @@ const formatLists = (list) => {
 const getGroupingLists = async (config) => {
     try {
         // Fetching data from db
-        const response = await axios.get('http://localhost:8080/api/dashboard/groupinglists', config);
+        const response = await api.get('api/dashboard/groupinglists', config);
         console.log("Success in fetching Grouping Lists")
         return {
             ...initLists,
@@ -61,7 +61,7 @@ const getGroupingLists = async (config) => {
 
 const getDataset = async (config) => {
     try {
-        const response = await axios.get('http://localhost:8080/api/dashboard/', config);
+        const response = await api.get('api/dashboard/', config);
         console.log("Success in fetching dataset, length:" + response.data.length);
         return response.data
     } catch (err) {
@@ -72,7 +72,7 @@ const getDataset = async (config) => {
 // Only for testing
 const updateDB = async () => {
     try {
-        const response = await axios.get('http://localhost:8080/api/dashboard/update');
+        const response = await api.get('api/dashboard/update');
         alert(response.data);
     } catch (err) {
         console.log(err);
