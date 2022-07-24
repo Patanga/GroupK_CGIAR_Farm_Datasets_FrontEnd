@@ -60,7 +60,7 @@
 }
 
 .chartsContainer {
-   width: 100%;
+    width: 100%;
 }
 
 /* Copy from old version */
@@ -79,6 +79,8 @@
 }
 
 .defaultChart {
+    /*min-height: 400px;*/
+    /*min-width: 600px;*/
     height: 400px;
     width: 600px;
     margin: 20px 20px 70px 20px;
