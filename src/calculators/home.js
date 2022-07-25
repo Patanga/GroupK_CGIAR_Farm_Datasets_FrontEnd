@@ -1,5 +1,5 @@
 
-exports.getMapData = (data) => {
+export const getMapData = (data) => {
     const mapData = data.map(doc => {
         return {
             id_unique: doc.id_unique,

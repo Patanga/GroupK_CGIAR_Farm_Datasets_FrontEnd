@@ -1,4 +1,4 @@
-exports.getBoxOption = (boxData) => {
+export const getBoxOption = (boxData) => {
     return {
         title: [
             {

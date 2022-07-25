@@ -1,4 +1,4 @@
-exports.getFsHFIASOption = (data) => {
+export const getFsHFIASOption = (data) => {
     var option={}
     option={
         title: {

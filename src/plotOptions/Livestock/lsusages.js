@@ -1,4 +1,4 @@
-exports.getLsUsagesOption = (useData) => {
+export const getLsUsagesOption = (useData) => {
     return {
         title: {
             text: 'Lifestock Usages',

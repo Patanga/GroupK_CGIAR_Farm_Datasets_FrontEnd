@@ -1,4 +1,4 @@
-exports.getFsFoodConsumedOption = (data) => {
+export const getFsFoodConsumedOption = (data) => {
     if (data.length === 0) {
         return ({
             title: {

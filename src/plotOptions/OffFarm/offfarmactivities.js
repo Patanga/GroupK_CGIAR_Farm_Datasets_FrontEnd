@@ -1,4 +1,4 @@
-exports.getOffActivityOption = (barData) => {
+export const getOffActivityOption = (barData) => {
     return {
         title: {
             text: 'Off Farm Income Activities Chart',

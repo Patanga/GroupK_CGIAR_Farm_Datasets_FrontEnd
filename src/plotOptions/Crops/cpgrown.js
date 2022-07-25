@@ -1,4 +1,4 @@
-exports.getCpGrown = (groData) => {
+export const getCpGrown = (groData) => {
     return {
         title: {
             text: 'All Crops Grown',

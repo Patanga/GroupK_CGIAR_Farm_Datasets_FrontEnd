@@ -1,4 +1,4 @@
-exports.buildCropLand=(dataForAPIList)=>{
+export const buildCropLand=(dataForAPIList)=>{
     const histogramData = []
     for(var i in dataForAPIList){
         //check value
@@ -11,7 +11,7 @@ exports.buildCropLand=(dataForAPIList)=>{
     return histogramData
 }
 
-exports.buildCropGrown=(dataForAPIList)=>{
+export const buildCropGrown=(dataForAPIList)=>{
     var barData=[];
     var arr = [];
     for(var i=0;i<dataForAPIList.length;i++){
@@ -55,7 +55,7 @@ exports.buildCropGrown=(dataForAPIList)=>{
     return barData;
 }
 
-exports.buildCropUsed=(dataForAPIList)=>{
+export const buildCropUsed=(dataForAPIList)=>{
     var cropName = [];
     var consumed = [];
     var sold = [];
@@ -142,7 +142,7 @@ exports.buildCropUsed=(dataForAPIList)=>{
     return {cropName, consumed, sold};
 }
 
-exports.buildCropYields=(dataForAPIList)=>{
+export const buildCropYields=(dataForAPIList)=>{
     var cropName = [];
     var yields = [];
     for(var i in dataForAPIList){

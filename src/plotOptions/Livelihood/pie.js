@@ -1,4 +1,4 @@
-exports.getPieOption=(pieData)=> {
+export const getPieOption=(pieData)=> {
     var option={}
     option= {
         title: {

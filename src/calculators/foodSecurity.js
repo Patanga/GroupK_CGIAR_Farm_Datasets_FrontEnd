@@ -10,7 +10,7 @@ const foodMap = {
 
 
 // wzj
-const count = (dataForAPIList, countType) => {
+export const count = (dataForAPIList, countType) => {
     function insert(counter, treeNode) {
         if (treeNode === null) {
             treeNode = {
@@ -90,10 +90,9 @@ const count = (dataForAPIList, countType) => {
             return null;
     }
 };
-exports.count = count;
 
 //
-exports.buildFoodShortageData = (dataForAPIList) => {
+export const buildFoodShortageData = (dataForAPIList) => {
     let result = count(dataForAPIList, "FoodShortage");
     result = sortByMap(result, monthsMap);
 
@@ -105,14 +104,14 @@ exports.buildFoodShortageData = (dataForAPIList) => {
 };
 
 //
-exports.buildHDDSData = (dataForAPIList) => {
+export const buildHDDSData = (dataForAPIList) => {
     let resultLean = dataForAPIList.map(dataObj => dataObj.api_hdds_lean);
     let resultFlush = dataForAPIList.map(dataObj => dataObj.api_hdds_flush);
     return [resultLean.filter(num => num >= 0), resultFlush.filter(num => num >= 0)];
 };
 
 //
-exports.buildFoodConsumedData = (dataForAPIList) => {
+export const buildFoodConsumedData = (dataForAPIList) => {
     let resultOfCount = count(dataForAPIList, "FoodConsumed");
     let resultLean = resultOfCount.food_lean;
     let resultFlush = resultOfCount.food_flush;

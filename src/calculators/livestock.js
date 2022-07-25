@@ -1,5 +1,5 @@
 // wzj
-const count = (dataForAPIList, countType) => {
+export const count = (dataForAPIList, countType) => {
     function insert(counter, treeNode) {
         if (treeNode === null) {
             treeNode = {
@@ -52,11 +52,10 @@ const count = (dataForAPIList, countType) => {
             return null;
     }
 };
-exports.count = count;
 
 
 //
-exports.buildHeadsData = (dataForAPIList) => {
+export const buildHeadsData = (dataForAPIList) => {
     let result = {};
     dataForAPIList.forEach(dataObj => {
         let animals = dataObj.api_livestocks_kept;
@@ -74,7 +73,7 @@ exports.buildHeadsData = (dataForAPIList) => {
 };
 
 //
-exports.buildUseData = (dataForAPIList) => {
+export const buildUseData = (dataForAPIList) => {
     const sum = dataForAPIList.length;
     let meatSold = dataForAPIList.reduce(
         (preResult, data) => preResult + data.api_meat_sold_consumed[0], 0
@@ -110,7 +109,7 @@ exports.buildUseData = (dataForAPIList) => {
 }
 
 //
-exports.buildBreedsData = (dataForAPIList) => {
+export const buildBreedsData = (dataForAPIList) => {
     let result = count(dataForAPIList, "Breeds");
     var sum = 0
     result.map(doc=>{

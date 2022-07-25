@@ -1,4 +1,4 @@
-exports.getOffIncomeOption = (hisData) => {
+export const getOffIncomeOption = (hisData) => {
     return {
         title: {
             text: 'Off Farm Income Propotion',

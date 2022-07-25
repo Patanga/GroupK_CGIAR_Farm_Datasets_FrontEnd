@@ -1,4 +1,4 @@
-exports.getCpUsed = (usedData) => {
+export const getCpUsed = (usedData) => {
     return {
         title: {
             text: 'Crops Used and Consumed',

@@ -1,4 +1,4 @@
-exports.getFsFoodShortageOption = (data) => {
+export const getFsFoodShortageOption = (data) => {
     if (data === null) {
         return ({
             title: {

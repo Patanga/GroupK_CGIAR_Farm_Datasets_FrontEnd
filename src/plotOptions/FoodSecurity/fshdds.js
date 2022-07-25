@@ -1,4 +1,4 @@
-exports.getFsHDDSOption = (data) => {
+export const getFsHDDSOption = (data) => {
     let xMap = {
         0: "Lean Season",
         1: "Flush Season",

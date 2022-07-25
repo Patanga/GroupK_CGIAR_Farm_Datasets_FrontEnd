@@ -1,4 +1,4 @@
-exports.getOffUsageOption=(pieData)=> {
+export const getOffUsageOption=(pieData)=> {
     var option={}
     option=  {
         title: {

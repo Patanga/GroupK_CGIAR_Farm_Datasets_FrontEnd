@@ -1,4 +1,4 @@
-exports.getCpLand = (landData) => {
+export const getCpLand = (landData) => {
     var part = ["0~1","1~2","2~3","3~4","4~5","5~6","6~7","7~8","8~9","9~10","over 10"]
     var count =[0,0,0,0,0,0,0,0,0,0,0]
     landData.map(num=>{

@@ -1,4 +1,4 @@
-exports.getLsHeadsOption = (headsData) => {
+export const getLsHeadsOption = (headsData) => {
     let boxData = headsData || {};
     return {
         title:[ {

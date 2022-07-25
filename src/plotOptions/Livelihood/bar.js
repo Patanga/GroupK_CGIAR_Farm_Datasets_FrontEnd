@@ -1,6 +1,6 @@
 const echarts = require('echarts');
 
-exports.getBarOption = (barData) => {
+export const getBarOption = (barData) => {
     return {
         title: {
             text: 'Total Value of Livelihoods Activities',

@@ -1,4 +1,4 @@
-exports.getCpYields = (yieData) => {
+export const getCpYields = (yieData) => {
     return {
         title: [
             {

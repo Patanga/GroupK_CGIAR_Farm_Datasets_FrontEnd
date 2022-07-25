@@ -1,4 +1,4 @@
-exports.getLsBreedsOption = (breData) => {
+export const getLsBreedsOption = (breData) => {
     return {
         title: {
             text: 'Breeds for Each Species',

@@ -1,4 +1,4 @@
-exports.getLsFrequencyOption = (freData) => {
+export const getLsFrequencyOption = (freData) => {
     return {
         title: {
             text: 'Frequency lifestock kept',

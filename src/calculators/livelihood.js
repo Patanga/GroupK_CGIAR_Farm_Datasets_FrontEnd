@@ -1,5 +1,5 @@
 
-exports.getBarData = (data) => {
+export const getBarData = (data) => {
     const barData = data.map(doc => {
         let newdoc = {
             id_unique: 'Record Unique ID: ' + doc.id_unique,
@@ -20,7 +20,7 @@ exports.getBarData = (data) => {
     return barData;
 }
 
-exports.getPieData = (data) => {
+export const getPieData = (data) => {
     let under_1_cnt = 0;
     let _1to1_9_cnt = 0;
     let above_1_9_cnt = 0;
@@ -45,7 +45,7 @@ exports.getPieData = (data) => {
     ]
 }
 
-exports.getBoxData = (data) => {
+export const getBoxData = (data) => {
 
     let cons_crop_annual_arr = [];
     let cons_lstk_annual_arr = [];

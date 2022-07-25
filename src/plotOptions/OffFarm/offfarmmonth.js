@@ -1,4 +1,4 @@
-exports.getOffMonthOption = (monData) => {
+export const getOffMonthOption = (monData) => {
     return {
         title: {
             text: 'Off Farm Month Count',

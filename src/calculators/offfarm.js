@@ -1,5 +1,5 @@
 //off_farm1
-exports.buildOffFarmIncome=(dataForAPIList)=>{
+export const buildOffFarmIncome=(dataForAPIList)=>{
     const percent_change = {
         all  : 0,
         most  : 0,
@@ -63,7 +63,7 @@ exports.buildOffFarmIncome=(dataForAPIList)=>{
 }
 
 //off_farm2
-exports.buildOffFarmMonth=(dataForAPIList)=>{
+export const buildOffFarmMonth=(dataForAPIList)=>{
     var output={
         month:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
         count:[0,0,0,0,0,0,0,0,0,0,0,0]
@@ -92,7 +92,7 @@ exports.buildOffFarmMonth=(dataForAPIList)=>{
 }
 
 //off_farm3
-exports.buildOffFarmActivity=(dataForAPIList)=>{
+export const buildOffFarmActivity=(dataForAPIList)=>{
     var output=[]
     dataForAPIList.map(doc=>{
         output=output.concat(doc.api_off_farm_activities)
@@ -109,7 +109,7 @@ exports.buildOffFarmActivity=(dataForAPIList)=>{
 }
 
 //off_farm4
-exports.buildOffFarmUsage=(dataForAPIList)=>{
+export const buildOffFarmUsage=(dataForAPIList)=>{
     var output=[]
     dataForAPIList.map(doc=>{
         output=output.concat(doc.api_off_farm_spending)
