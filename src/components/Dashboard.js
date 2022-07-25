@@ -46,7 +46,7 @@ const formatLists = (list) => {
 const getGroupingLists = async (config) => {
     try {
         // Fetching data from db
-        const response = await api.get('api/dashboard/groupinglists', config);
+        const response = await api.get('dashboard/groupinglists', config);
         console.log("Success in fetching Grouping Lists")
         return {
             ...initLists,
@@ -61,7 +61,7 @@ const getGroupingLists = async (config) => {
 
 const getDataset = async (config) => {
     try {
-        const response = await api.get('api/dashboard/', config);
+        const response = await api.get('dashboard/', config);
         console.log("Success in fetching dataset, length:" + response.data.length);
         return response.data
     } catch (err) {
@@ -72,7 +72,7 @@ const getDataset = async (config) => {
 // Only for testing
 const updateDB = async () => {
     try {
-        const response = await api.get('api/dashboard/update');
+        const response = await api.get('dashboard/update');
         alert(response.data);
     } catch (err) {
         console.log(err);
