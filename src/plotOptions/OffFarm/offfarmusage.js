@@ -1,28 +1,41 @@
 exports.getOffUsageOption=(pieData)=> {
-    return  {
+    var option={}
+    option=  {
         title: {
-            text: 'Use of Income',
-            subtext: 'Off farm',
+            text: 'Off Farm Income Usage',
             left: 'center'
         },
         tooltip: {
-            trigger: 'item'
+            trigger: "item",
+            formatter: "{c} ({d}%)"
         },
-
         toolbox: {
             show: true,
             feature: {
-                mark: { show: true },
-                dataView: { show: true, readOnly: false },
-                // magicType: { show: true, type: ['line', 'bar'] },
-                restore: { show: true },
+                dataView: { show: true, readOnly: true },
                 saveAsImage: { show: true }
             }
         },
         legend: {
-            orient: 'vertical',
-            left: 'left'
+            top: "8%",
+            left: "center",
+            icon: "circle",
+            itemGap: 5
         },
+        formatter: function(name) {
+            var data = option.series[0].data;
+            var total = 0;
+            var tarValue;
+            for (var i = 0; i < data.length; i++) {
+              total += data[i].value;
+              if (data[i].name == name) {
+                tarValue = data[i].value;
+              }
+            }
+            //var p = Math.round(((tarValue / total) * 100)); //根据情况选择
+            var p=parseFloat((((tarValue / total) * 100)).toFixed(2))
+            return `${name} (${p}%)`;
+          },
         series: [
             {
                 name: 'Usage',
@@ -41,7 +54,7 @@ exports.getOffUsageOption=(pieData)=> {
                 emphasis: {
                     label: {
                         show: true,
-                        fontSize: '40',
+                        fontSize: '1rem',
                         fontWeight: 'bold'
                     }
                 },
@@ -49,14 +62,9 @@ exports.getOffUsageOption=(pieData)=> {
                     show: false
                 },
                 data: pieData,
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
+                center: ["50%","63%"],
             }
         ]
     };
+    return option
 }

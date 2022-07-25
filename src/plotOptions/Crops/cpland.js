@@ -1,6 +1,6 @@
 exports.getCpLand = (landData) => {
-    var part = ["0~1","1~2","2~3","3~4","4~5","5~6","6~7","7~8","above 8"]
-    var count =[0,0,0,0,0,0,0,0,0]
+    var part = ["0~1","1~2","2~3","3~4","4~5","5~6","6~7","7~8","8~9","9~10","over 10"]
+    var count =[0,0,0,0,0,0,0,0,0,0,0]
     landData.map(num=>{
         if (num[0]>=0&&num[0]<1){
             count[0]++;
@@ -26,13 +26,19 @@ exports.getCpLand = (landData) => {
         if (num[0]>=7&&num[0]<8){
             count[7]++;
         }
-        if (num[0]>=8){
+        if (num[0]>=8&&num[0]<9){
             count[8]++;
+        }
+        if (num[0]>=9&&num[0]<10){
+            count[9]++;
+        }
+        if (num[0]>=10){
+            count[10]++;
         }
     })
     return {
         title: {
-            text: 'Off Farm Income Propotion Chart',
+            text: 'Total Land Area Cultivated',
             // subtext: 'Global',
             left: 'center'
         },
@@ -48,38 +54,32 @@ exports.getCpLand = (landData) => {
         toolbox: {
             show: true,
             feature: {
-                mark: { show: true },
-                dataView: { show: true, readOnly: false },
-                // magicType: { show: true, type: ['line', 'bar'] },
-                restore: { show: true },
+                dataView: { show: true, readOnly: true },
                 saveAsImage: { show: true }
             }
         },
         grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
+            top: '20%',
             containLabel: true
         },
         xAxis: [
             {
                 type: 'category',
                 data: part,
-                axisTick: {
-                    alignWithLabel: true
-                }
+                axisLabel: { interval: 0,rotate: 45}
             }
         ],
         yAxis: [
             {
-                type: 'value'
+                type: 'value',
+                name:'Count'
             }
         ],
         series: [
             {
                 name: 'Count',
                 type: 'bar',
-                barWidth: '60%',
+                color:'orange',
                 data: count
             }
         ]

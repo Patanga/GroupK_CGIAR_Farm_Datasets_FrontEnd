@@ -1,8 +1,7 @@
 exports.getCpUsed = (usedData) => {
     return {
         title: {
-            text: 'Crops Used',
-            // subtext: 'Global',
+            text: 'Crops Used and Consumed',
             left: 'center'
         },
         tooltip: {
@@ -17,34 +16,37 @@ exports.getCpUsed = (usedData) => {
         toolbox: {
             show: true,
             feature: {
-                mark: { show: true },
-                dataView: { show: true, readOnly: false },
-                // magicType: { show: true, type: ['line', 'bar'] },
-                restore: { show: true },
+                dataView: { show: true, readOnly: true },
                 saveAsImage: { show: true }
             }
         },
+        grid: {
+            top: '20%',
+            containLabel: true
+        },
         dataZoom: [
             {
-                show: true,
-                start: 30,
-                end: 70
+              type: 'slider',
+              show: true,
+              xAxisIndex: [0],
+              start: 20,
+              end: 50
             },
             {
-                type: 'inside',
-                start: 0,
-                end: 1
+              type: 'slider',
+              show: true,
+              yAxisIndex: [0],
+              left: '93%',
+              start: 0,
+              end: 100
             },
             {
-                show: true,
-                yAxisIndex: 0,
-                filterMode: 'empty',
-                width: 30,
-                height: '80%',
-                showDataShadow: false,
-                left: '93%'
-            }
-        ],
+              type: 'inside',
+              xAxisIndex: [0],
+              start: 20,
+              end: 50
+            },
+          ],
         xAxis: [
             {
                 type: 'category',

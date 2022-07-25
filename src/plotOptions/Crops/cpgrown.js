@@ -1,8 +1,7 @@
 exports.getCpGrown = (groData) => {
     return {
         title: {
-            text: 'Crops Grown',
-            // subtext: 'Global',
+            text: 'All Crops Grown',
             left: 'center'
         },
         tooltip: {
@@ -17,56 +16,58 @@ exports.getCpGrown = (groData) => {
         toolbox: {
             show: true,
             feature: {
-                mark: { show: true },
-                dataView: { show: true, readOnly: false },
-                // magicType: { show: true, type: ['line', 'bar'] },
-                restore: { show: true },
+                dataView: { show: true, readOnly: true },
                 saveAsImage: { show: true }
             }
         },
+        grid: {
+            top: '20%',
+            containLabel: true
+        },
         dataZoom: [
             {
-                show: true,
-                start: 0,
-                end: 100
+              type: 'slider',
+              show: true,
+              xAxisIndex: [0],
+              start: 0,
+              end: 30
             },
             {
-                type: 'inside',
-                start: 40,
-                end: 60
+              type: 'slider',
+              show: true,
+              yAxisIndex: [0],
+              left: '93%',
+              start: 0,
+              end: 100
             },
             {
-                show: true,
-                yAxisIndex: 0,
-                filterMode: 'empty',
-                width: 30,
-                height: '80%',
-                showDataShadow: false,
-                left: '93%'
-            }
-        ],
-        xAxis: [
+              type: 'inside',
+              xAxisIndex: [0],
+              start: 0,
+              end: 30
+            },
+          ],
+        dataset: [
             {
-                type: 'category',
-                data: groData.arr,
-                axisTick: {
-                    alignWithLabel: true
-                }
-            }
-        ],
-        yAxis: [
+              dimensions: ['name', 'age'],
+              source: groData
+            },
             {
-                type: 'value',
+              transform: {
+                type: 'sort',
+                config: { dimension: 'name', order: 'asc' }
+              }
             }
-        ],
-        series: [
-            {
-                name: 'Count',
-                type: 'bar',
-                barWidth: '60%',
-                data: groData.count_of_households,
-                color:'#2f4554'
-            }
-        ]
+          ],
+          xAxis: {
+            type: 'category',
+          },
+          yAxis: {name: 'Count',},
+          series: {
+            type: 'bar',
+            color:'orange',
+            encode: { x: 'name', y: 'age' },
+            datasetIndex: 1
+          }
     }
 }

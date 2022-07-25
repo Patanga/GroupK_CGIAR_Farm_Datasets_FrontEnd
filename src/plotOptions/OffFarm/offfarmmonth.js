@@ -1,41 +1,34 @@
 exports.getOffMonthOption = (monData) => {
     return {
         title: {
-            text: 'Off Farm Month',
-            // subtext: 'Global',
+            text: 'Off Farm Month Count',
             left: 'center'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow',
-                label: {
-                    show: true
-                }
-            }
         },
         toolbox: {
             show: true,
             feature: {
-                mark: { show: true },
-                dataView: { show: true, readOnly: false },
-                // magicType: { show: true, type: ['line', 'bar'] },
-                restore: { show: true },
+                dataView: { show: true, readOnly: true },
                 saveAsImage: { show: true }
             }
+        },
+        tooltip: {
+            trigger: "axis",
+            axisPointer: {type: "shadow"}
+        },
+        grid: {
+            top: '20%',
+            containLabel: true
         },
         xAxis: [
             {
                 type: 'category',
                 data: monData.month,
-                axisTick: {
-                    alignWithLabel: true
-                }
             }
         ],
         yAxis: [
             {
                 type: 'value',
+                name:'count'
             }
         ],
         series: [
@@ -44,7 +37,7 @@ exports.getOffMonthOption = (monData) => {
                 type: 'bar',
                 barWidth: '60%',
                 data: monData.count,
-                color:'#2f4554'
+                color:'orange'
             }
         ]
     }

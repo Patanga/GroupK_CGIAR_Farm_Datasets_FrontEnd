@@ -4,64 +4,61 @@ exports.getOffActivityOption = (barData) => {
             text: 'Off Farm Income Activities Chart',
             left: 'center'
         },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow',
-                label: {
-                    show: true
-                }
-            }
-        },
         toolbox: {
             show: true,
             feature: {
-                mark: { show: true },
-                dataView: { show: true, readOnly: false },
-                restore: { show: true },
+                dataView: { show: true, readOnly: true },
                 saveAsImage: { show: true }
             }
         },
+        tooltip: {
+            trigger: "axis",
+            axisPointer: {type: "shadow"}
+        },
+        grid: {
+            top: '20%',
+            containLabel: true
+        },
         dataZoom: [
             {
-                show: false,
-                start: 0,
-                end: 100
+              type: 'slider',
+              show: true,
+              xAxisIndex: [0],
+              start: 0,
+              end: 40
             },
             {
-                type: 'inside',
-                start: 0,
-                end: 100
+              type: 'slider',
+              show: true,
+              yAxisIndex: [0],
+              left: '93%',
+              start: 0,
+              end: 100
             },
             {
-                show: true,
-                yAxisIndex: 0,
-                filterMode: 'empty',
-                width: 30,
-                height: '80%',
-                showDataShadow: false,
-                left: '93%'
-            }
-        ],
+              type: 'inside',
+              xAxisIndex: [0],
+              start: 0,
+              end: 40
+            },
+          ],
         xAxis: {
             type: 'category',
             data: barData.activity,
             axisLabel: {
-                show: true,
                 interval: 0,
-                rotate: -60,
-                inside: false,
-                margin: 6,
-                formatter: '{value} Day' ,
+                rotate: 45,
             },
         },
         yAxis: {
-            type: 'value'
+            type: 'value',
+            name:'count'
         },
         series: [
             {
                 data: barData.counts,
-                type: 'bar'
+                type: 'bar',
+                color:'orange'
             }
         ]
     }

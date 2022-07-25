@@ -3,8 +3,7 @@ const echarts = require('echarts');
 exports.getBarOption = (barData) => {
     return {
         title: {
-            text: 'Total value of activities',
-            // subtext: 'Global',
+            text: 'Total Value of Livelihoods Activities',
             left: 'center'
         },
         tooltip: {
@@ -19,22 +18,12 @@ exports.getBarOption = (barData) => {
         toolbox: {
             show: true,
             feature: {
-                mark: { show: true },
-                dataView: { show: true, readOnly: false },
-                // magicType: { show: true, type: ['line', 'bar'] },
-                restore: { show: true },
+                dataView: { show: true, readOnly: true },
                 saveAsImage: { show: true }
             }
         },
-        calculable: true,
-        legend: {
-            show: false,
-            itemGap: 10,
-        },
         grid: {
-            top: '12%',
-            left: '1%',
-            right: '10%',
+            top: '20%',
             containLabel: true
         },
         xAxis: [
@@ -46,10 +35,7 @@ exports.getBarOption = (barData) => {
         yAxis: [
             {
                 type: 'value',
-                name: '$ per MAE per day',
-                nameTextStyle: {
-                    align: 'left',
-                },
+                name: 'Dollor($) per MAE per day',
                 axisLabel: {
                     formatter: function (a) {
                         a = +a;
@@ -60,25 +46,27 @@ exports.getBarOption = (barData) => {
         ],
         dataZoom: [
             {
-                show: true,
-                start: 50,
-                end: 80
+              type: 'slider',
+              show: true,
+              xAxisIndex: [0],
+              start: 50,
+              end: 80
             },
             {
-                type: 'inside',
-                start: 84,
-                end: 100
+              type: 'slider',
+              show: true,
+              yAxisIndex: [0],
+              left: '93%',
+              start: 0,
+              end: 100
             },
             {
-                show: true,
-                yAxisIndex: 0,
-                filterMode: 'empty',
-                width: 30,
-                height: '80%',
-                showDataShadow: false,
-                left: '93%'
-            }
-        ],
+              type: 'inside',
+              xAxisIndex: [0],
+              start: 50,
+              end: 80
+            },
+          ],
         dataset: [{
             dimensions: [
                 'id_unique',

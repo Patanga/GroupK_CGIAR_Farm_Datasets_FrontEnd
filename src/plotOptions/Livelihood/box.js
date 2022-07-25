@@ -11,23 +11,30 @@ exports.getBoxOption = (boxData) => {
                 borderWidth: 1,
                 textStyle: {
                     fontWeight: 'normal',
-                    fontSize: 14,
+                    fontSize: 10,
                     lineHeight: 20
                 },
                 left: '10%',
-                top: '90%'
+                top: '0%'
             }
         ],
         toolbox: {
             show: true,
             feature: {
-                mark: { show: true },
-                dataView: { show: true, readOnly: false },
-                // magicType: { show: true, type: ['line', 'bar'] },
-                restore: { show: true },
+                dataView: { show: true, readOnly:true },
                 saveAsImage: { show: true }
             }
         },
+        dataZoom: [
+            {
+              type: 'slider',
+              show: true,
+              yAxisIndex: [0],
+              left: '93%',
+              start: 0,
+              end: 80
+            },
+          ],
         dataset: [
             {
                 // prettier-ignore
@@ -36,8 +43,6 @@ exports.getBoxOption = (boxData) => {
             {
                 transform: {
                     type: 'boxplot',
-                    //   config: { itemNameFormatter: 'expr {value}' }
-                    // config: { itemNameFormatter: (e) => Object.keys(data.boxData)[e.value].replace("_ppp_per_mae", "").replace("_", " ") }
                 }
             },
             {
@@ -46,15 +51,15 @@ exports.getBoxOption = (boxData) => {
             }
         ],
         tooltip: {
-            trigger: 'item',
+            trigger: '',
             axisPointer: {
                 type: 'shadow'
             }
         },
         grid: {
-            left: '10%',
-            right: '10%',
-            bottom: '15%'
+            top: '20%',
+    
+            containLabel: true
         },
         xAxis: {
             type: 'category',
@@ -69,7 +74,7 @@ exports.getBoxOption = (boxData) => {
         },
         yAxis: {
             type: 'value',
-            name: '$',
+            name: 'Dollar($)',
             splitArea: {
                 show: true
             }

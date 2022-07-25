@@ -1,6 +1,28 @@
 exports.getFsFoodConsumedOption = (data) => {
     if (data.length === 0) {
         return ({
+            title: {
+                text: 'Food Consumed in Lean and Flush Seasons',
+                left: 'center'
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    dataView: { show: true, readOnly:true },
+                    saveAsImage: { show: true }
+                }
+            },
+            legend: {
+                top: "10%",
+            },
+            tooltip: {
+                trigger: "axis",
+                axisPointer: {type: "shadow"}
+            },
+            grid: {
+                top: '20%',
+                containLabel: true
+            },
             xAxis: {
                 type: "category",
                 data: ['eggs', 'fruits', 'grainsrootstubers', 'legumes', 'meat',
@@ -17,11 +39,28 @@ exports.getFsFoodConsumedOption = (data) => {
         });
     } else {
         return ({
+            title: {
+                text: 'Food Consumed in Lean and Flush Seasons',
+                left: 'center'
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    dataView: { show: true, readOnly:true },
+                    saveAsImage: { show: true }
+                }
+            },
+            grid: {
+                top: '20%',
+                containLabel: true
+            },
             tooltip: {
                 trigger: "axis",
                 axisPointer: {type: "shadow"}
             },
-            legend: {},
+            legend: {
+                top: "10%",
+            },
             dataset: {
                 source: data
             },

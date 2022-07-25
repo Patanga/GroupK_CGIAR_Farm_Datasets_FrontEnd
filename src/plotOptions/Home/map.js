@@ -23,7 +23,6 @@ export function updateMap(dataset) {
 export function renderMapTile(dataset) {
     // Map initialization
     map = L.map('map').setView([30, 10], 3);
-
     // Add backgroud map data layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,

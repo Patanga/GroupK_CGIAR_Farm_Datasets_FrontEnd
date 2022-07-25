@@ -1,30 +1,68 @@
 exports.getPieOption=(pieData)=> {
-    return  {
+    var option={}
+    option= {
         title: {
-            text: '% of sample earning',
-            subtext: 'per MAE per day',
+            text: 'Perenntage of earning per MAE per day',
             left: 'center'
         },
         tooltip: {
-            trigger: 'item'
+            trigger: 'item',
+            formatter: "{c} ({d}%)"
         },
         legend: {
-            orient: 'vertical',
-            left: 'left'
+            top: '10%',
+            left: 'center'
         },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: { show: true, readOnly:true },
+                saveAsImage: { show: true }
+            }
+        },
+        formatter: function(name) {
+            var data = option.series[0].data;
+            var total = 0;
+            var tarValue;
+            for (var i = 0; i < data.length; i++) {
+              total += data[i].value;
+              if (data[i].name == name) {
+                tarValue = data[i].value;
+              }
+            }
+            var p = Math.round(((tarValue / total) * 100)); //根据情况选择
+            //var p=parseFloat((((tarValue / total) * 100)).toFixed(3))
+            return `${name} (${p}%)`;
+          },
         series: [
             {
-                type: 'pie',
-                radius: '50%',
-                data: pieData,
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
+              name: 'Access From',
+              type: 'pie',
+              radius: ['40%', '70%'],
+              avoidLabelOverlap: false,
+              itemStyle: {
+                borderRadius: 10,
+                borderColor: '#fff',
+                borderWidth: 2
+              },
+              label: {
+                show: false,
+                position: 'center'
+              },
+              emphasis: {
+                label: {
+                  show: true,
+                  fontSize: '40',
+                  fontWeight: 'bold'
                 }
+              },
+              labelLine: {
+                show: false
+              },
+              data:pieData,
+              center: ["50%","60%"]
             }
         ]
     };
+    return option
 }

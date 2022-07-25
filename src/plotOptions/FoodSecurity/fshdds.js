@@ -4,6 +4,27 @@ exports.getFsHDDSOption = (data) => {
         1: "Flush Season",
     }
     return ({
+        title:[ {
+            text: 'HDDS in Lean and Flush Seasons',
+            left: 'center'
+        },
+        {
+            text: 'upper: Q3 + 1.5 * IQR \nlower: Q1 - 1.5 * IQR',
+            borderColor: '#999',
+            borderWidth: 1,
+            textStyle: {
+                fontWeight: 'normal',
+                fontSize: 10,
+                lineHeight: 20
+            },
+            left: '3%',
+            top: '0%'
+        }
+    ],
+        grid: {
+            top: '20%',
+            containLabel: true
+        },
         dataset: [
             {
                 source: data
@@ -20,6 +41,13 @@ exports.getFsHDDSOption = (data) => {
                 fromTransformResult: 1
             }
         ],
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: { show: true, readOnly:true },
+                saveAsImage: { show: true }
+            }
+        },
         tooltip: {
             trigger: 'item',
             axisPointer: {

@@ -1,7 +1,50 @@
 exports.getLsHeadsOption = (headsData) => {
     let boxData = headsData || {};
     return {
-        dataset: [
+        title:[ {
+            text: 'Livestock Heads',
+            left: 'center'
+        },
+        {
+            text: 'upper: Q3 + 1.5 * IQR \nlower: Q1 - 1.5 * IQR',
+            borderColor: '#999',
+            borderWidth: 1,
+            textStyle: {
+                fontWeight: 'normal',
+                fontSize: 10,
+                lineHeight: 20
+            },
+            left: '10%',
+            top: '0%'
+        }
+    ],
+    toolbox: {
+        show: true,
+        feature: {
+            dataView: { show: true, readOnly: true },
+            saveAsImage: { show: true }
+        }
+    },
+    tooltip: {
+        trigger: "axis",
+        axisPointer: {type: "shadow"}
+    },
+    grid: {
+        top: '20%',
+        containLabel: true
+    },
+    dataZoom: [
+        {
+          type: 'slider',
+          show: true,
+          yAxisIndex: [0],
+          left: '93%',
+          start: 0,
+          end: 1
+        },
+      ],
+    
+    dataset: [
             {
                 source: Object.values(boxData)
             },
@@ -15,33 +58,6 @@ exports.getLsHeadsOption = (headsData) => {
             {
                 fromDatasetIndex: 1,
                 fromTransformResult: 1
-            }
-        ],
-        tooltip: {
-            trigger: 'item',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
-        dataZoom: [
-            {
-                show: false,
-                start: 0,
-                end: 100
-            },
-            {
-                type: 'inside',
-                start: 0,
-                end: 100
-            },
-            {
-                show: true,
-                yAxisIndex: 0,
-                filterMode: 'empty',
-                width: 30,
-                height: '80%',
-                showDataShadow: false,
-                left: '93%'
             }
         ],
         xAxis: {

@@ -1,23 +1,23 @@
 exports.getLsBreedsOption = (breData) => {
     return {
         title: {
-            text: 'Lifestock Breeds Data',
+            text: 'Breeds for Each Species',
             left: 'center'
         },
-        tooltip: {
-            trigger: "item",
-            formatter: "{c} %"
-        },
-
         toolbox: {
             show: true,
             feature: {
-                mark: { show: true },
-                dataView: { show: true, readOnly: false },
-                // magicType: { show: true, type: ['line', 'bar'] },
-                restore: { show: true },
+                dataView: { show: true, readOnly: true },
                 saveAsImage: { show: true }
             }
+        },
+        tooltip: {
+            trigger: "axis",
+            axisPointer: {type: "shadow"}
+        },
+        grid: {
+            top: '20%',
+            containLabel: true
         },
         dataset: {
             source: breData,
@@ -28,8 +28,8 @@ exports.getLsBreedsOption = (breData) => {
         },
         yAxis: {
             type: "value",
-            name: "%"
+            name: "percentage(%)"
         },
-        series: [ {type: "bar"} ]
+        series: [ {type: "bar",color:'orange'} ]
     }
 }

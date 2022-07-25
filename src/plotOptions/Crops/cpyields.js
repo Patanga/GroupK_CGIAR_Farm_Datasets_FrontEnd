@@ -1,9 +1,24 @@
 exports.getCpYields = (yieData) => {
     return {
-        title: {
-            text: 'Crops Yields',
-            left: 'center'
-        },
+        title: [
+            {
+                text: 'Crops Yields',
+                left: 'center'
+            },
+            {
+                text: 'upper: Q3 + 1.5 * IQR \nlower: Q1 - 1.5 * IQR',
+                borderColor: '#999',
+                borderWidth: 1,
+                textStyle: {
+                    fontWeight: 'normal',
+                    fontSize: 10,
+                    lineHeight: 20
+                },
+                left: '10%',
+                top: '0%'
+            }
+        ],
+        
         tooltip: {
             trigger: 'axis',
             axisPointer: {
@@ -16,38 +31,40 @@ exports.getCpYields = (yieData) => {
         toolbox: {
             show: true,
             feature: {
-                mark: { show: true },
-                dataView: { show: true, readOnly: false },
-                // magicType: { show: true, type: ['line', 'bar'] },
-                restore: { show: true },
+                dataView: { show: true, readOnly: true },
                 saveAsImage: { show: true }
             }
         },
+        grid: {
+            top: '20%',
+            containLabel: true
+        },
         dataZoom: [
             {
-                show: true,
-                start: 50,
-                end: 80
+              type: 'slider',
+              show: true,
+              xAxisIndex: [0],
+              start: 30,
+              end: 50
             },
             {
-                type: 'inside',
-                start: 40,
-                end: 60
+              type: 'slider',
+              show: true,
+              yAxisIndex: [0],
+              left: '93%',
+              start: 0,
+              end: 5
             },
             {
-                show: true,
-                yAxisIndex: 0,
-                filterMode: 'empty',
-                width: 30,
-                height: '80%',
-                showDataShadow: false,
-                left: '93%'
-            }
-        ],
+              type: 'inside',
+              xAxisIndex: [0],
+              start: 30,
+              end: 50
+            },
+          ],
 
         dataset: [
             {
-                // prettier-ignore
                 source: yieData.yields
             },
             {
@@ -76,6 +93,7 @@ exports.getCpYields = (yieData) => {
         },
         yAxis: {
             type: 'value',
+            name:"count",
             splitArea: {
                 show: true
             }
