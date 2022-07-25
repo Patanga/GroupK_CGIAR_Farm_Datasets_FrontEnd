@@ -36,22 +36,18 @@ export default function FoodSecurity(props) {
                 Records: {props.data.length}
             </Alert>
             <div className="defaultChart">
-                <h4>HFIAS</h4>
                 <Echart option={optionFsHFIAS} />
             </div>
 
             <div className="defaultChart">
-                <h4>Food Shortage</h4>
                 <Echart option={optionFsFoodShortage} />
             </div>
 
             <div className="defaultChart">
-                <h4>HDDS</h4>
                 <Echart option={optionFsHDDS} />
             </div>
 
             <div className="defaultChart">
-                <h4>Food Consumed</h4>
                 <Echart option={optionFsFoodConsumed} />
             </div>
         </>

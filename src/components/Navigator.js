@@ -7,16 +7,16 @@ import {Nav} from "react-bootstrap";
 export default function Navigator(props){
     return <div>
         {/*<ButtonToolbar className="custom-btn-toolbar">*/}
-        {/*    <ButtonGroup>*/}
-        {/*        <Button variant="outline-dark" onClick={() => props.setCurrentPage('home')}>Home</Button>*/}
-        {/*        <Button variant="outline-dark" onClick={() => props.setCurrentPage('ll')}>Livelihood</Button>*/}
-        {/*        <Button variant="outline-dark" onClick={() => props.setCurrentPage('fs')}>Food Security</Button>*/}
-        {/*        <Button variant="outline-dark" onClick={() => props.setCurrentPage('cr')}>Crops</Button>*/}
-        {/*        <Button variant="outline-dark" onClick={() => props.setCurrentPage('lstk')}>Livestock</Button>*/}
-        {/*        <Button variant="outline-dark" onClick={() => props.setCurrentPage('incm')}>Off Farm Incomes</Button>*/}
+        {/*    <ButtonGroup fill className="justify-content-center">*/}
+        {/*        <Button variant="outline-dark" onClick={() => props.setCurrentPage('home')}><div className='navFont'>Home</div></Button>*/}
+        {/*        <Button variant="outline-dark" onClick={() => props.setCurrentPage('ll')}><div className='navFont'>Livelihood</div></Button>*/}
+        {/*        <Button variant="outline-dark" onClick={() => props.setCurrentPage('fs')}><div className='navFont'>Food Security</div></Button>*/}
+        {/*        <Button variant="outline-dark" onClick={() => props.setCurrentPage('cr')}><div className='navFont'>Crops</div></Button>*/}
+        {/*        <Button variant="outline-dark" onClick={() => props.setCurrentPage('lstk')}><div className='navFont'>Livestock</div></Button>*/}
+        {/*        <Button variant="outline-dark" onClick={() => props.setCurrentPage('incm')}><div className='navFont'>Off Farm Incomes</div></Button>*/}
         {/*    </ButtonGroup>*/}
         {/*</ButtonToolbar>*/}
-        <Nav justify>
+        <Nav variant="pills" defaultActiveKey="/home" className="justify-content-center" fill>
             <Nav.Item>
                 <Nav.Link onClick={() => props.setCurrentPage('home')}><div className='navFont'>Home</div></Nav.Link>
             </Nav.Item>

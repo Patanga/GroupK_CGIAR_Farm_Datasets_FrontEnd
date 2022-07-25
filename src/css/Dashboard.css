@@ -85,3 +85,14 @@
     width: 600px;
     margin: 20px 20px 70px 20px;
 }
+
+/* Vision */
+
+element.style {
+}
+.nav-fill .nav-item .nav-link, .nav-justified .nav-item .nav-link {
+    width: 100%;
+}
+a.nav-link {
+    top: calc(50% - 15px);
+}
