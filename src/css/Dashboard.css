@@ -36,12 +36,13 @@
 
 .navigator {
     border-radius: 10px;
-    background-color: #2f0c39;
+    /*background-color: #2f0c39;*/
     margin: -16px 0 0 0;
 }
 
 .navFont {
-    color:white;
+    /*color:white;*/
+    color: #2f0c39;
 }
 
 .cache {
@@ -84,15 +85,4 @@
     height: 400px;
     width: 600px;
     margin: 20px 20px 70px 20px;
-}
-
-/* Vision */
-
-element.style {
-}
-.nav-fill .nav-item .nav-link, .nav-justified .nav-item .nav-link {
-    width: 100%;
-}
-a.nav-link {
-    top: calc(50% - 15px);
 }

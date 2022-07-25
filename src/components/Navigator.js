@@ -16,7 +16,7 @@ export default function Navigator(props){
         {/*        <Button variant="outline-dark" onClick={() => props.setCurrentPage('incm')}><div className='navFont'>Off Farm Incomes</div></Button>*/}
         {/*    </ButtonGroup>*/}
         {/*</ButtonToolbar>*/}
-        <Nav variant="pills" defaultActiveKey="/home" className="justify-content-center" fill>
+        <Nav variant="tabs" className="justify-content-center" fill>
             <Nav.Item>
                 <Nav.Link onClick={() => props.setCurrentPage('home')}><div className='navFont'>Home</div></Nav.Link>
             </Nav.Item>
