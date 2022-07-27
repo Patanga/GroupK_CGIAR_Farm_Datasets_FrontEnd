@@ -34,6 +34,9 @@ export default function Livelihood(props) {
             </Alert>
             <div className="defaultChart">
                 <Echart option={optionBar} />
+                <div className="ChartExplain">
+                    Example: The Usage of this chart
+                </div>
             </div>
             <div className="defaultChart">
                 <Echart option={optionPie} />

@@ -126,19 +126,9 @@ export default function Dashboard() {
 
     return (
         <Container>
-            <Row>
-                <Col xs={4}>
-                    <div className='header'>
-                    <h1>Rhomis Dashboard v1.0</h1>
-                    </div>
-                </Col>
-
-                <Col>
-                    <div className='navigator'>
-                        {/*<Navigator setCurrentPage={setCurrentPage} />*/}
-                    </div>
-                </Col>
-            </Row>
+                <div className='header'>
+                <h1>Rhomis Dashboard v1.0</h1>
+                </div>
 
             <div className='dashboard'>
                 <Row>
@@ -150,7 +140,7 @@ export default function Dashboard() {
                     <Button  className='cache' variant="outline-dark" onClick={updateDB}>Update DB cache</Button>
 
                 </Col>
-                <Col xs={9} className='dashboardBody'>
+                <Col className='dashboardBody'>
                     <div>
                         <div className='navigator'>
                             <Navigator setCurrentPage={setCurrentPage} />
