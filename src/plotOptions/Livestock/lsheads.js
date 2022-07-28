@@ -26,7 +26,7 @@ export const getLsHeadsOption = (headsData) => {
         }
     },
     tooltip: {
-        trigger: "axis",
+        trigger: "item",
         axisPointer: {type: "shadow"}
     },
     grid: {

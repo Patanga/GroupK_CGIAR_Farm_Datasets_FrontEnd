@@ -18,6 +18,10 @@ export const getBoxOption = (boxData) => {
                 top: '0%'
             }
         ],
+        tooltip: {
+            trigger: "item",
+            axisPointer: {type: "shadow"}
+        },
         toolbox: {
             show: true,
             feature: {
@@ -50,12 +54,6 @@ export const getBoxOption = (boxData) => {
                 fromTransformResult: 1
             }
         ],
-        tooltip: {
-            trigger: '',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
         grid: {
             top: '20%',
     
