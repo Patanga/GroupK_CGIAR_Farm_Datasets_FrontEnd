@@ -135,11 +135,16 @@ export const buildCropUsed=(dataForAPIList)=>{
             }
         }
     }
+
+    var output=[]
+
     for(var i1=0;i1<cropName.length;i1++){
         consumed[i1]= Number((consumed[i1]/dataForAPIList.length).toFixed(2));
         sold[i1]=Number((sold[i1]/dataForAPIList.length).toFixed(2));
+        output.push([cropName[i1],consumed[i1],sold[i1]])
     }
-    return {cropName, consumed, sold};
+    
+    return output;
 }
 
 export const buildCropYields=(dataForAPIList)=>{

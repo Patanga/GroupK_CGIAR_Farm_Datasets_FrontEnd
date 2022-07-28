@@ -26,7 +26,7 @@ export const getPieOption=(pieData)=> {
             var tarValue;
             for (var i = 0; i < data.length; i++) {
               total += data[i].value;
-              if (data[i].name == name) {
+              if (data[i].name === name) {
                 tarValue = data[i].value;
               }
             }

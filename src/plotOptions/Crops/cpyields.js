@@ -53,7 +53,7 @@ export const getCpYields = (yieData) => {
               yAxisIndex: [0],
               left: '93%',
               start: 0,
-              end: 5
+              end: 6
             },
             {
               type: 'inside',
@@ -89,11 +89,12 @@ export const getCpYields = (yieData) => {
             },
             splitLine: {
                 show: false
-            }
+            },
+            axisLabel: { rotate: 45 }
         },
         yAxis: {
             type: 'value',
-            name:"count",
+            name:"Count",
             splitArea: {
                 show: true
             }

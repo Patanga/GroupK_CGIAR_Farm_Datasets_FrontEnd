@@ -61,8 +61,9 @@ export const getCpGrown = (groData) => {
           ],
           xAxis: {
             type: 'category',
+            axisLabel: { rotate: 45 }
           },
-          yAxis: {name: 'Count',},
+          yAxis: {name: 'Count'},
           series: {
             type: 'bar',
             color:'orange',

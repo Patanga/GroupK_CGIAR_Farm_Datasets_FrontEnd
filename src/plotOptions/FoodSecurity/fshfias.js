@@ -1,5 +1,17 @@
 export const getFsHFIASOption = (data) => {
     var option={}
+    
+    function titleCase(str) {    
+        var strblank=str.replace('_', ' ')
+        var newStr = strblank.split(" ");   
+        for(var i = 0; i<newStr.length; i++){
+            newStr[i] = newStr[i].slice(0,1).toUpperCase() + newStr[i].slice(1).toLowerCase();
+        } 
+        return newStr.join(" ");
+    }
+    data.forEach(doc=>{
+        doc.name=titleCase(doc.name)
+    })
     option={
         title: {
             text: 'Percentage in each HFIAS Category',
@@ -26,7 +38,7 @@ export const getFsHFIASOption = (data) => {
             var tarValue;
             for (var i = 0; i < data.length; i++) {
               total += data[i].value;
-              if (data[i].name == name) {
+              if (data[i].name === name) {
                 tarValue = data[i].value;
               }
             }
@@ -51,11 +63,11 @@ export const getFsHFIASOption = (data) => {
             },
             emphasis: {
                 label: {
-                    show: true,
-                    fontSize: "1rem",
-                    fontWeight: "bold"
+                  show: true,
+                  fontSize: '40',
+                  fontWeight: 'bold'
                 }
-            },
+              },
             labelLine: {
                 show: false
             },

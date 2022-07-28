@@ -6,12 +6,7 @@ export const getCpUsed = (usedData) => {
         },
         tooltip: {
             trigger: 'axis',
-            axisPointer: {
-                type: 'shadow',
-                label: {
-                    show: true
-                }
-            }
+            axisPointer: {type: 'shadow'}
         },
         toolbox: {
             show: true,
@@ -23,6 +18,10 @@ export const getCpUsed = (usedData) => {
         grid: {
             top: '20%',
             containLabel: true
+        },
+        legend: {
+            top: '10%',
+            left: 'center'
         },
         dataZoom: [
             {
@@ -47,35 +46,35 @@ export const getCpUsed = (usedData) => {
               end: 50
             },
           ],
-        xAxis: [
+          dataset: [
             {
-                type: 'category',
-                data: usedData.cropName,
-                axisTick: {
-                    alignWithLabel: true
-                }
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value',
-            }
-        ],
-        series: [
-            {
-                name: 'Count',
-                type: 'bar',
-                barWidth: '60%',
-                data: usedData.consumed,
-                color:'#73c0de'
+              dimensions: ['name', 'num1','num2'],
+              source: usedData
             },
             {
-                name: 'Count',
-                type: 'bar',
-                barWidth: '60%',
-                data: usedData.sold,
-                color:'#3ba272'
+              transform: {
+                type: 'sort',
+                config: { dimension: 'num2', order: 'asc' }
+              }
             }
-        ]
+          ],
+        xAxis: {
+            type: 'category',
+            axisLabel: { rotate: 45 }
+        },
+        yAxis:{
+                type: 'value',
+                name:'Count'},
+        series: 
+            [ {
+                type: 'bar',
+                encode: { x: 'name', y: 'num1' },
+                datasetIndex: 1
+              },{
+                type: 'bar',
+                encode: { x: 'name', y: 'num2' },
+                datasetIndex: 1
+              },]
+        
     }
 }

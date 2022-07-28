@@ -39,9 +39,9 @@ export const getPieData = (data) => {
     })
     // format data for echarts
     return [
-        { value: under_1_cnt, name: '< 1 USD' },
-        { value: _1to1_9_cnt, name: '1 to 1.99 USD' },
-        { value: above_1_9_cnt, name: '> 1.99 USD' },
+        { value: under_1_cnt, name: 'Less Than 1 USD' },
+        { value: _1to1_9_cnt, name: 'From 1 to 1.99 USD' },
+        { value: above_1_9_cnt, name: 'More Than 1.99 USD' },
     ]
 }
 
