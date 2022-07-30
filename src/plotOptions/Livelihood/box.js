@@ -1,4 +1,11 @@
 export const getBoxOption = (boxData) => {
+    const names = [
+        "Crop\nConsumed",
+        "Livestock\nConsumed",
+        "Crop\nIncome",
+        "Livestock\nIncome",
+        "Off-farm\nIncome"
+    ];
     return {
         title: [
             {
@@ -47,6 +54,7 @@ export const getBoxOption = (boxData) => {
             {
                 transform: {
                     type: 'boxplot',
+                    config: { itemNameFormatter: (e)=>names[e.value] }
                 }
             },
             {
@@ -68,6 +76,10 @@ export const getBoxOption = (boxData) => {
             },
             splitLine: {
                 show: false
+            },
+            // axisLabel: { interval: 0, rotate: 45 }
+            axisLabel: {
+                lineHeight: 17,
             }
         },
         yAxis: {
