@@ -35,7 +35,7 @@ export const getBarOption = (barData) => {
         yAxis: [
             {
                 type: 'value',
-                name: 'Dollor($) per MAE per day',
+                name: 'US Dollor($) per MAE per day',
                 // axisLabel: {
                 //     formatter: function (a) {
                 //         a = +a;

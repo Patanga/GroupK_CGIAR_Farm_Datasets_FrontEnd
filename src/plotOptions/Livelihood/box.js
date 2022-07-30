@@ -84,7 +84,7 @@ export const getBoxOption = (boxData) => {
         },
         yAxis: {
             type: 'value',
-            name: 'Dollar($)',
+            name: 'US Dollar($)',
             splitArea: {
                 show: true
             }
