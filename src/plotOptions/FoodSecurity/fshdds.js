@@ -17,8 +17,6 @@ export const getFsHDDSOption = (data) => {
                 fontSize: 10,
                 lineHeight: 20
             },
-            left: '3%',
-            top: '0%'
         }
     ],
         grid: {

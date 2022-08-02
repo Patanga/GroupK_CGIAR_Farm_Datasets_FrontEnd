@@ -1,7 +1,7 @@
 export const getOffIncomeOption = (hisData) => {
     return {
         title: {
-            text: 'Off Farm Income Propotion',
+            text: 'Off Farm Income Proportion',
             left: 'center'
         },
         toolbox: {

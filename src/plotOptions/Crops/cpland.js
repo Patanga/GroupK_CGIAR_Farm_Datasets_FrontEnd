@@ -66,6 +66,7 @@ export const getCpLand = (landData) => {
             {
                 type: 'category',
                 data: part,
+                name:'Acre',
                 axisLabel: { interval: 0,rotate: 45}
             }
         ],

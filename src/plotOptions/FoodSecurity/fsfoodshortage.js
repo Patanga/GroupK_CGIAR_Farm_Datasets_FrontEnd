@@ -17,7 +17,7 @@ export const getFsFoodShortageOption = (data) => {
                 axisPointer: {type: "shadow"}
             },
             grid: {
-                top: '20%',
+                top: '22%',
                 containLabel: true
             },
             xAxis: {
@@ -55,7 +55,7 @@ export const getFsFoodShortageOption = (data) => {
                 }
             },
             grid: {
-                top: '20%',
+                top: '22%',
                 containLabel: true
             },
             xAxis: {

@@ -16,12 +16,12 @@ export const getCpUsed = (usedData) => {
             }
         },
         grid: {
-            top: '20%',
-            containLabel: true
+            top: '18%',
+            containLabel: true,
         },
         legend: {
-            top: '10%',
-            left: 'center'
+            top: '8%',
+            left: 'center',
         },
         dataZoom: [
             {
@@ -48,15 +48,9 @@ export const getCpUsed = (usedData) => {
           ],
           dataset: [
             {
-              dimensions: ['name', 'num1','num2'],
+              dimensions: ['name', 'Used','Consumed'],
               source: usedData
             },
-            {
-              transform: {
-                type: 'sort',
-                config: { dimension: 'num2', order: 'asc' }
-              }
-            }
           ],
         xAxis: {
             type: 'category',
@@ -65,16 +59,6 @@ export const getCpUsed = (usedData) => {
         yAxis:{
                 type: 'value',
                 name:'Count'},
-        series: 
-            [ {
-                type: 'bar',
-                encode: { x: 'name', y: 'num1' },
-                datasetIndex: 1
-              },{
-                type: 'bar',
-                encode: { x: 'name', y: 'num2' },
-                datasetIndex: 1
-              },]
-        
+        series: [{type: 'bar'},{type: 'bar'}]
     }
 }

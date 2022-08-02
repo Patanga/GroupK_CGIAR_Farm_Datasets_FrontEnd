@@ -68,8 +68,36 @@ export const buildHeadsData = (dataForAPIList) => {
         });
 
     });
+    var name=Object.keys(result)
+    var rowbox=Object.values(result)
+    var box=[]
+    var count=[]
+    for(var i=0;i<rowbox.length;i++){
+        var cnt=0;
+        var arr=[];
+        for(var j=0;j<rowbox[i].length;j++){
+            if(rowbox[i][j]!==0){
+                arr.push(rowbox[i][j]);
+            }else{
+                cnt++
+            }
+        }
+        box.push(arr)
+        count.push(cnt)
+    }
+    console.log(
+        {
+            name:name,
+            box:box,
+            count:count
+        }
+    )
 
-    return result;
+    return {
+        name:name,
+        box:box,
+        count:count
+    };
 };
 
 //
@@ -112,10 +140,10 @@ export const buildUseData = (dataForAPIList) => {
 export const buildBreedsData = (dataForAPIList) => {
     let result = count(dataForAPIList, "Breeds");
     var sum = 0
-    result.map(doc=>{
+    result.forEach(doc=>{
         sum=sum + doc[1]
     })
-    if(sum==0){
+    if(sum===0){
         return [
             [
                 "No Breeds Count",

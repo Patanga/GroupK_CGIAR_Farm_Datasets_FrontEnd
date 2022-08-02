@@ -52,22 +52,56 @@ export const getBoxData = (data) => {
     let incm_crop_annual_arr = [];
     let incm_lstk_annual_arr = [];
     let incm_offfarm_annual_arr = [];
-
+    let cons_crop_annual_zero = 0;
+    let cons_lstk_annual_zero = 0;
+    let incm_crop_annual_zero = 0;
+    let incm_lstk_annual_zero = 0;
+    let incm_offfarm_annual_zero = 0;
     data.forEach(doc => {
         const year = doc.year;
         const days = ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) ? 366 : 365;
-        cons_crop_annual_arr.push(doc.api_cons_crop_ppp_pd_pmae * days);
-        cons_lstk_annual_arr.push(doc.api_cons_lstk_ppp_pd_pmae * days);
-        incm_crop_annual_arr.push(doc.api_income_crop_ppp_pd_pmae * days);
-        incm_lstk_annual_arr.push(doc.api_income_lstk_ppp_pd_pmae * days);
-        incm_offfarm_annual_arr.push(doc.api_income_offfarm_ppp_pd_pmae * days);
+        if(doc.api_cons_crop_ppp_pd_pmae!==0){
+            cons_crop_annual_arr.push(doc.api_cons_crop_ppp_pd_pmae * days);
+        }else{
+            cons_crop_annual_zero++
+        }
+        if(doc.api_cons_lstk_ppp_pd_pmae!==0){
+            cons_lstk_annual_arr.push(doc.api_cons_lstk_ppp_pd_pmae * days);
+        }else{
+            cons_lstk_annual_zero++
+        }
+        if(doc.api_income_crop_ppp_pd_pmae!==0){
+            incm_crop_annual_arr.push(doc.api_income_crop_ppp_pd_pmae * days);
+        }else{
+            incm_crop_annual_zero++
+        }
+        if(doc.api_income_lstk_ppp_pd_pmae!==0){
+            incm_lstk_annual_arr.push(doc.api_income_lstk_ppp_pd_pmae * days);
+        }else{
+            incm_lstk_annual_zero++
+        }
+        if(doc.api_income_offfarm_ppp_pd_pmae!==0){
+            incm_offfarm_annual_arr.push(doc.api_income_offfarm_ppp_pd_pmae * days);
+        }else{
+            incm_offfarm_annual_zero++
+        }
+        
     })
-
-    return [
-        cons_crop_annual_arr,
-        cons_lstk_annual_arr,
-        incm_crop_annual_arr,
-        incm_lstk_annual_arr,
-        incm_offfarm_annual_arr
-    ]
+    
+    return {
+        box:[
+            cons_crop_annual_arr,
+            cons_lstk_annual_arr,
+            incm_crop_annual_arr,
+            incm_lstk_annual_arr,
+            incm_offfarm_annual_arr
+        ],
+        count:[
+            cons_crop_annual_zero,
+            cons_lstk_annual_zero,
+            incm_crop_annual_zero,
+            incm_lstk_annual_zero,
+            incm_offfarm_annual_zero
+        ]
+    }
 }

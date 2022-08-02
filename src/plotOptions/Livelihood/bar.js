@@ -1,5 +1,3 @@
-const echarts = require('echarts');
-
 export const getBarOption = (barData) => {
     return {
         title: {
@@ -35,13 +33,7 @@ export const getBarOption = (barData) => {
         yAxis: [
             {
                 type: 'value',
-                name: 'Dollor($) per MAE per day',
-                axisLabel: {
-                    formatter: function (a) {
-                        a = +a;
-                        return isFinite(a) ? echarts.format.addCommas(+a / 1000) : '';
-                    }
-                }
+                name: 'US Dollor($) per person per day',
             }
         ],
         dataZoom: [
@@ -50,7 +42,7 @@ export const getBarOption = (barData) => {
               show: true,
               xAxisIndex: [0],
               start: 50,
-              end: 80
+              end: 86
             },
             {
               type: 'slider',
@@ -64,7 +56,7 @@ export const getBarOption = (barData) => {
               type: 'inside',
               xAxisIndex: [0],
               start: 50,
-              end: 80
+              end: 86
             },
           ],
         dataset: [{

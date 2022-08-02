@@ -1,8 +1,8 @@
-export const getLsHeadsOption = (headsData) => {
-    let boxData = headsData || {};
+export const getLsHeadsOption = (lsData) => {
     return {
         title:[ {
             text: 'Livestock Heads',
+            subtext:'Press Legend to Toggle',
             left: 'center'
         },
         {
@@ -14,82 +14,154 @@ export const getLsHeadsOption = (headsData) => {
                 fontSize: 10,
                 lineHeight: 20
             },
-            left: '10%',
-            top: '0%'
         }
     ],
-    toolbox: {
-        show: true,
-        feature: {
-            dataView: { show: true, readOnly: true },
-            saveAsImage: { show: true }
-        }
-    },
-    tooltip: {
-        trigger: "item",
-        axisPointer: {type: "shadow"}
-    },
-    grid: {
-        top: '20%',
-        containLabel: true
-    },
     dataZoom: [
         {
           type: 'slider',
           show: true,
-          yAxisIndex: [0],
+          yAxisIndex: [1],
           left: '93%',
           start: 0,
-          end: 1
+          end: 5
         },
       ],
-    
-    dataset: [
-            {
-                source: Object.values(boxData)
-            },
-            {
-                fromDatasetIndex: 0,
-                transform: {
-                    type: 'boxplot',
-                    config: { itemNameFormatter: (data) => Object.keys(boxData)[data.value] }
-                }
-            },
-            {
-                fromDatasetIndex: 1,
-                fromTransformResult: 1
+        dataset: [
+          {
+            // prettier-ignore
+            source: lsData.box
+          },
+          {
+            transform: {
+              type: 'boxplot',
+              // config: { itemNameFormatter: '箱型图 {value}' } // 箱型图X轴的名字配置
             }
+          },
+          {
+            fromDatasetIndex: 1,
+            fromTransformResult: 1
+          }
         ],
-        xAxis: {
+        tooltip: {
+          trigger: "item",
+          axisPointer: { type: "shadow" }
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: { show: true, readOnly:true },
+                saveAsImage: { show: true }
+            }
+        },
+        grid: {top:"22%",
+        containLabel: true
+        },
+        legend: {
+          data: [{ name: "Zero Count" }, { name: "Box" },{name:'Outlier'}],
+          top: "12%",
+          textStyle: {
+            color: "black" //图例文字
+          }
+        },
+        xAxis: [
+          // 柱状图X轴
+          {
+            type: "category",
+            nameGap: 30,
+            boundaryGap: true,
+            data: lsData.name,
+            axisLine: { lineStyle: { color: "#939495" } },
+            axisLabel: { interval: 0, rotate: 30 },
+            splitArea: {
+              show: false
+            },
+            splitLine: {
+              show: false
+            }
+    
+          }, 
+          //
+          { show:false,//false
             type: 'category',
             boundaryGap: true,
             nameGap: 30,
             splitArea: {
-                show: false
+              show: false
             },
             splitLine: {
-                show: false
+              show: false
+            }
+          },
+          
+         
+        ],
+        yAxis: [
+          {
+            type: "value",
+            name: "Zero Count",
+            splitLine: {
+              show: false
             },
-            axisLabel: { interval: 0, rotate: 45 }
-        },
-        yAxis: {
-            type: 'value',
-            name: 'Heads',
             splitArea: {
-                show: true
-            }
-        },
-        series: [
-            {
-                name: 'boxplot',
-                type: 'boxplot',
-                datasetIndex: 1
+              show: true
             },
-            {
-                name: 'outlier',
-                type: 'scatter',
-                datasetIndex: 2
+            axisLabel: {
+              show: true,
+              fontSize: 14,
+              color: "#939495"
+            },
+          },
+          {
+            type: "value",
+            name: "Heads",
+            show: true,
+            axisLabel: {
+              show: true,
+              fontSize: 14,
+              formatter: "{value}",
+              color: "#939495"
+            },
+            axisLine: { lineStyle: { color: "#939495" } }, 
+            splitArea: {
+              show: true,
+              lineStyle: { color: "#939495" }
             }
+          },
+          
+        ],
+    
+    
+    
+        series: [
+          {
+            name: "Zero Count",
+            type: "bar",
+            data: lsData.count,
+            //barWidth: "50",
+            itemStyle: {
+              normal: {
+                barBorderRadius: 0,
+                color: "orange"
+              }
+            },
+            //barGap: "0.2"
+          },
+          {
+            name: 'Box',
+            type: 'boxplot',
+            datasetIndex: 1,
+            yAxisIndex: 1, //在单个图表实例中存在多个y轴的时候有用
+            xAxisIndex: 1,  //使用的 x 轴的index，在单个图表实例中存在多个 x 轴的时候有用
+          },
+          {
+            name: 'Outlier',
+            type: 'scatter',
+            yAxisIndex: 1, //在单个图表实例中存在多个y轴的时候有用
+            datasetIndex: 2,
+            xAxisIndex: 1,  //使用的 x 轴的index，在单个图表实例中存在多个 x 轴的时候有用
+          }
         ]
-    }
+    
+    
+      };
 }

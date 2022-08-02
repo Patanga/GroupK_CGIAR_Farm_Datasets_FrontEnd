@@ -141,10 +141,13 @@ export const buildCropUsed=(dataForAPIList)=>{
     for(var i1=0;i1<cropName.length;i1++){
         consumed[i1]= Number((consumed[i1]/dataForAPIList.length).toFixed(2));
         sold[i1]=Number((sold[i1]/dataForAPIList.length).toFixed(2));
-        output.push([cropName[i1],consumed[i1],sold[i1]])
+        if(consumed[i1]){output.push([cropName[i1],consumed[i1],sold[i1]])}
     }
-    
-    return output;
+    function num(a,b){
+        return a[2]-b[2];
+    }
+    var cha=output.sort(num);
+    return cha;
 }
 
 export const buildCropYields=(dataForAPIList)=>{

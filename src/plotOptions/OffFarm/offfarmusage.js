@@ -31,7 +31,8 @@ export const getOffUsageOption=(pieData)=> {
             top: "8%",
             left: "center",
             icon: "circle",
-            itemGap: 5
+            itemGap: 5,
+            type:"scroll"
         },
         formatter: function(name) {
             var data = option.series[0].data;

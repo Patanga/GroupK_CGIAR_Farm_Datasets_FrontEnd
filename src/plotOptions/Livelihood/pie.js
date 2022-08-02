@@ -2,7 +2,7 @@ export const getPieOption=(pieData)=> {
     var option={}
     option= {
         title: {
-            text: 'Perenntage of earning per MAE per day',
+            text: 'Percentage of Earning per Person per Day',
             left: 'center'
         },
         tooltip: {
