@@ -1,5 +1,12 @@
 const echarts = require('echarts');
 export const getBoxOption = (boxData) => {
+    const names = [
+        "Crop\nConsumed",
+        "Livestock\nConsumed",
+        "Crop\nIncome",
+        "Livestock\nIncome",
+        "Off-farm\nIncome"
+    ];
     return {
         title:[ {
             text: 'Annual Livelihood Value',
