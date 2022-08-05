@@ -1,12 +1,5 @@
 const echarts = require('echarts');
 export const getBoxOption = (boxData) => {
-    const names = [
-        "Crop\nConsumed",
-        "Livestock\nConsumed",
-        "Crop\nIncome",
-        "Livestock\nIncome",
-        "Off-farm\nIncome"
-    ];
     return {
         title:[ {
             text: 'Annual Livelihood Value',
@@ -69,7 +62,8 @@ export const getBoxOption = (boxData) => {
           top: "12%",
           textStyle: {
             color: "black" //图例文字
-          }
+          },
+          selected: { Outlier: false },
         },
         xAxis: [
           // 柱状图X轴

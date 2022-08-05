@@ -61,7 +61,8 @@ export const getLsHeadsOption = (lsData) => {
           top: "12%",
           textStyle: {
             color: "black" //图例文字
-          }
+          },
+          selected: { Outlier: false },
         },
         xAxis: [
           // 柱状图X轴
