@@ -37,11 +37,11 @@ export const buildCropGrown=(dataForAPIList)=>{
     for(var m=0;m<count_of_households.length;m++){//数组元素初始化为0
         count_of_households[m]=0;
     }
-    for(var j=0;j<arr.length;j++){//对于每一个横坐标字符串，遍历所有household的crops_all字段，如果字段包含该字符串，则对应的count_of_households数组元素+1
-        var crop_name = arr[j];
+    for(var j1=0;j1<arr.length;j1++){//对于每一个横坐标字符串，遍历所有household的crops_all字段，如果字段包含该字符串，则对应的count_of_households数组元素+1
+        var crop_name = arr[j1];
         for(var k=0;k<dataForAPIList.length;k++){
             if(dataForAPIList[k].api_crops_all.indexOf(crop_name)!==-1){
-                count_of_households[j]++;
+                count_of_households[j1]++;
             }
         }
     }
@@ -59,30 +59,30 @@ export const buildCropUsed=(dataForAPIList)=>{
     var cropName = [];
     var consumed = [];
     var sold = [];
-    for(var i in dataForAPIList){
-        if(dataForAPIList[i].api_consumed_sold1[0]!==null){
-            cropName.push(dataForAPIList[i].api_consumed_sold1[0]);
+    for(var i5 in dataForAPIList){
+        if(dataForAPIList[i5].api_consumed_sold1[0]!==null){
+            cropName.push(dataForAPIList[i5].api_consumed_sold1[0]);
         }
-        if(dataForAPIList[i].api_consumed_sold2[0]!==null){
-            cropName.push(dataForAPIList[i].api_consumed_sold2[0]);
+        if(dataForAPIList[i5].api_consumed_sold2[0]!==null){
+            cropName.push(dataForAPIList[i5].api_consumed_sold2[0]);
         }
-        if(dataForAPIList[i].api_consumed_sold3[0]!==null){
-            cropName.push(dataForAPIList[i].api_consumed_sold3[0]);
+        if(dataForAPIList[i5].api_consumed_sold3[0]!==null){
+            cropName.push(dataForAPIList[i5].api_consumed_sold3[0]);
         }
-        if(dataForAPIList[i].api_consumed_sold4[0]!==null){
-            cropName.push(dataForAPIList[i].api_consumed_sold4[0]);
+        if(dataForAPIList[i5].api_consumed_sold4[0]!==null){
+            cropName.push(dataForAPIList[i5].api_consumed_sold4[0]);
         }
-        if(dataForAPIList[i].api_consumed_sold5[0]!==null){
-            cropName.push(dataForAPIList[i].api_consumed_sold5[0]);
+        if(dataForAPIList[i5].api_consumed_sold5[0]!==null){
+            cropName.push(dataForAPIList[i5].api_consumed_sold5[0]);
         }
-        if(dataForAPIList[i].api_consumed_sold6[0]!==null){
-            cropName.push(dataForAPIList[i].api_consumed_sold6[0]);
+        if(dataForAPIList[i5].api_consumed_sold6[0]!==null){
+            cropName.push(dataForAPIList[i5].api_consumed_sold6[0]);
         }
-        if(dataForAPIList[i].api_consumed_sold7[0]!==null){
-            cropName.push(dataForAPIList[i].api_consumed_sold7[0]);
+        if(dataForAPIList[i5].api_consumed_sold7[0]!==null){
+            cropName.push(dataForAPIList[i5].api_consumed_sold7[0]);
         }
-        if(dataForAPIList[i].api_consumed_sold8[0]!==null){
-            cropName.push(dataForAPIList[i].api_consumed_sold8[0]);
+        if(dataForAPIList[i5].api_consumed_sold8[0]!==null){
+            cropName.push(dataForAPIList[i5].api_consumed_sold8[0]);
         }
     }
     var empty = [];//声明一个空数组
@@ -189,31 +189,31 @@ export const buildCropYields=(dataForAPIList)=>{
     }
     cropName = empty;//这里得到没有重复的约上百种种crop ，即横坐标文字
 
-    for(var i=0;i<cropName.length;i++){
+    for(var ii=0;i<cropName.length;ii++){
         var harvest = [];
         for(var j in dataForAPIList){
-            if(cropName[i]===dataForAPIList[j].api_name_yield1[0]){
+            if(cropName[ii]===dataForAPIList[j].api_name_yield1[0]){
                 harvest.push(dataForAPIList[j].api_name_yield1[1]);
             }
-            if(cropName[i]===dataForAPIList[j].api_name_yield2[0]){
+            if(cropName[ii]===dataForAPIList[j].api_name_yield2[0]){
                 harvest.push(dataForAPIList[j].api_name_yield2[1]);
             }
-            if(cropName[i]===dataForAPIList[j].api_name_yield3[0]){
+            if(cropName[ii]===dataForAPIList[j].api_name_yield3[0]){
                 harvest.push(dataForAPIList[j].api_name_yield3[1]);
             }
-            if(cropName[i]===dataForAPIList[j].api_name_yield4[0]){
+            if(cropName[ii]===dataForAPIList[j].api_name_yield4[0]){
                 harvest.push(dataForAPIList[j].api_name_yield4[1]);
             }
-            if(cropName[i]===dataForAPIList[j].api_name_yield5[0]){
+            if(cropName[ii]===dataForAPIList[j].api_name_yield5[0]){
                 harvest.push(dataForAPIList[j].api_name_yield5[1]);
             }
-            if(cropName[i]===dataForAPIList[j].api_name_yield6[0]){
+            if(cropName[ii]===dataForAPIList[j].api_name_yield6[0]){
                 harvest.push(dataForAPIList[j].api_name_yield6[1]);
             }
-            if(cropName[i]===dataForAPIList[j].api_name_yield7[0]){
+            if(cropName[ii]===dataForAPIList[j].api_name_yield7[0]){
                 harvest.push(dataForAPIList[j].api_name_yield7[1]);
             }
-            if(cropName[i]===dataForAPIList[j].api_name_yield8[0]){
+            if(cropName[ii]===dataForAPIList[j].api_name_yield8[0]){
                 harvest.push(dataForAPIList[j].api_name_yield8[1]);
             }
         }

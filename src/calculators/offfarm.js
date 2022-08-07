@@ -69,7 +69,7 @@ export const buildOffFarmMonth=(dataForAPIList)=>{
         count:[0,0,0,0,0,0,0,0,0,0,0,0]
     }
     var total=[]
-    dataForAPIList.map(doc=>{
+    dataForAPIList.forEach(doc=>{
         total=total.concat(doc.api_off_farm_months)
     })
     var obj={}
@@ -94,7 +94,7 @@ export const buildOffFarmMonth=(dataForAPIList)=>{
 //off_farm3
 export const buildOffFarmActivity=(dataForAPIList)=>{
     var output=[]
-    dataForAPIList.map(doc=>{
+    dataForAPIList.forEach(doc=>{
         output=output.concat(doc.api_off_farm_activities)
     })
     var obj ={}
@@ -111,7 +111,7 @@ export const buildOffFarmActivity=(dataForAPIList)=>{
 //off_farm4
 export const buildOffFarmUsage=(dataForAPIList)=>{
     var output=[]
-    dataForAPIList.map(doc=>{
+    dataForAPIList.forEach(doc=>{
         output=output.concat(doc.api_off_farm_spending)
     })
     var obj ={}
