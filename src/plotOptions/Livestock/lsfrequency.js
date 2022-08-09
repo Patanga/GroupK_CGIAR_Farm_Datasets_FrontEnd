@@ -1,7 +1,7 @@
 export const getLsFrequencyOption = (freData) => {
     return {
         title: {
-            text: 'Frequency Lifestock Kept',
+            text: 'Frequency Livestock Kept',
             left: 'center'
         },
         toolbox: {
