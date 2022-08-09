@@ -1,7 +1,7 @@
 export const getCpUsed = (usedData) => {
     return {
         title: {
-            text: 'Crops Used and Consumed',
+            text: 'Crops Sold and Consumed',
             left: 'center'
         },
         tooltip: {
