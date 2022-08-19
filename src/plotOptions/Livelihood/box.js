@@ -1,22 +1,23 @@
 const echarts = require('echarts');
 export const getBoxOption = (boxData) => {
     return {
-        title:[ {
+        title:[ 
+          {
             text: 'Annual Livelihood Value',
             subtext:'Press Legend to Toggle',
             left: 'center'
-        },
-        {
-          text: 'upper: Q3 + 1.5 * IQR \nlower: Q1 - 1.5 * IQR',
-          borderColor: '#999',
-          borderWidth: 1,
-          textStyle: {
+          },
+          {
+            text: 'upper: Q3 + 1.5 * IQR \nlower: Q1 - 1.5 * IQR',
+            borderColor: '#999',
+            borderWidth: 1,
+            textStyle: {
               fontWeight: 'normal',
               fontSize: 10,
               lineHeight: 20
-          },
-      }
-      ],
+            },
+          }
+        ],
       dataZoom: [
         {
           type: 'slider',
@@ -149,7 +150,6 @@ export const getBoxOption = (boxData) => {
                 color: "orange"
               }
             },
-            //barGap: "0.2"
           },
           {
             name: 'Box',

@@ -52,3 +52,92 @@ It is divided into six files, corresponding to the pages selected by the top but
 ### plotOptions
 
 It is divided into six folders according to different pages. Each folder contains the configuration content required by Echarts of each dashboards, and will return a JSON file, which is the JSON required by the options of Echarts. These options will be standardized according to the type and readability of the chart, including but not limited to parameters such as color, font, grid position, and axis units. At the same time, the data will be further adjusted, such as sorting or capitalization, etc., and adjusted in the formatter. This  [Chart Configuration link](https://echarts.apache.org/en/option.html#title) is the configuration instructions for Echarts.
+
+Some special config of options :
+
+##### Pie Chart
+
+```javascript
+formatter: function(name) {
+            var data = option.series[0].data;
+            var total = 0;
+            var tarValue;
+            for (var i = 0; i < data.length; i++) {
+              total += data[i].value;
+              if (data[i].name === name) {
+                tarValue = data[i].value;
+              }
+            }
+            var p = Math.round(((tarValue / total) * 100)); //choose by situation
+            //var p=parseFloat((((tarValue / total) * 100)).toFixed(3))
+            return `${name} (${p}%)`;
+          }
+```
+
+This section can attach the percentage of the corresponding content to the name behind the legend displayed by the pie chart. The number of decimal places required to be reserved before the percent sign, or the method of rounding, can be changed by replacing the comment line.
+
+##### Box-whisker
+
+```javascript
+          {
+            text: 'upper: Q3 + 1.5 * IQR \nlower: Q1 - 1.5 * IQR',
+            borderColor: '#999',
+            borderWidth: 1,
+            textStyle: {
+              fontWeight: 'normal',
+              fontSize: 10,
+              lineHeight: 20
+            },
+          }
+```
+
+This part is the data calculation standard of the box-and-whisker plot selected by this webpage, which is the default calculation standard formula of Echarts.
+
+##### Box and Bar
+
+```javascript
+legend: {
+          data: [{ name: "Zero Count" }, { name: "Box" },{name:'Outlier'}],
+          top: "12%",
+          textStyle: {
+            color: "black" //legend color
+          },
+          selected: { Outlier: false },
+        }
+```
+
+This section allows the user to choose to display different types of charts by clicking on the content in the legend box.
+
+In this code, you can choose which types of charts are loaded by default by changing the parameters in the 'selected'.
+
+```javascript
+ series: [
+          {
+            name: "Zero Count",
+            type: "bar",
+            data: boxData.count,
+            itemStyle: {
+              normal: {
+                barBorderRadius: 0,
+                color: "orange"
+              }
+            },
+          },
+          {
+            name: 'Box',
+            type: 'boxplot',
+            datasetIndex: 1,
+            yAxisIndex: 1, 
+            xAxisIndex: 1,  
+          },
+          {
+            name: 'Outlier',
+            type: 'scatter',
+            yAxisIndex: 1, 
+            datasetIndex: 2,
+            xAxisIndex: 1, 
+          }
+        ]
+```
+
+The data required for each chart needs to be provided in the series configuration.

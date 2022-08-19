@@ -8,7 +8,7 @@ import Page from './Page'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from "react-bootstrap/Button";
+//import Button from "react-bootstrap/Button";
 
 const initLists = {
     countries: [
@@ -70,6 +70,7 @@ const getDataset = async (config) => {
 }
 
 // Only for testing
+/*
 const updateDB = async () => {
     try {
         const response = await api.get('dashboard/update');
@@ -78,7 +79,7 @@ const updateDB = async () => {
         console.log(err);
     }
 }
-
+*/
 export default function Dashboard() {
     // For the whole dataset of a query
     const [data, setData] = useState({});
@@ -136,9 +137,7 @@ export default function Dashboard() {
                     <div className='groupings' >
                         <Grouping lists={lists} option={option} setOption={setOption} setExOp={setExOp} />
                     </div>
-                        {/*Button for updating DB dashboard cache */}
-                    <Button  className='cache' variant="outline-dark" onClick={updateDB}>Update DB cache</Button>
-
+                        {/*<Button  className='cache' variant="outline-dark" onClick={updateDB}>Update DB cache</Button> */}
                 </Col>
                 <Col className='dashboardBody'>
                     <div>
