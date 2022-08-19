@@ -1,4 +1,4 @@
-// wzj
+//livestock count data chart source process
 export const count = (dataForAPIList, countType) => {
     function insert(counter, treeNode) {
         if (treeNode === null) {
@@ -18,6 +18,7 @@ export const count = (dataForAPIList, countType) => {
         return treeNode;
     }
 
+    //livestock bar chart source process
     function flattenForBar(treeNode) {
         if (treeNode === null) {
             return [];
@@ -54,7 +55,7 @@ export const count = (dataForAPIList, countType) => {
 };
 
 
-//
+//livestock heads chart source process
 export const buildHeadsData = (dataForAPIList) => {
     let result = {};
     dataForAPIList.forEach(dataObj => {
@@ -100,7 +101,7 @@ export const buildHeadsData = (dataForAPIList) => {
     };
 };
 
-//
+//livestock usage chart source process
 export const buildUseData = (dataForAPIList) => {
     const sum = dataForAPIList.length;
     let meatSold = dataForAPIList.reduce(
@@ -136,7 +137,7 @@ export const buildUseData = (dataForAPIList) => {
     ];
 }
 
-//
+//livestock breeds chart source process
 export const buildBreedsData = (dataForAPIList) => {
     let result = count(dataForAPIList, "Breeds");
     var sum = 0

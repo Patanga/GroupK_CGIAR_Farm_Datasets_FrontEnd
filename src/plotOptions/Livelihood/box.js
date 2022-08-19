@@ -35,7 +35,7 @@ export const getBoxOption = (boxData) => {
           {
             transform: {
               type: 'boxplot',
-              // config: { itemNameFormatter: '箱型图 {value}' } // 箱型图X轴的名字配置
+              // config: { itemNameFormatter: 'box {value}' } // x-axis name
             }
           },
           {
@@ -61,12 +61,12 @@ export const getBoxOption = (boxData) => {
           data: [{ name: "Zero Count" }, { name: "Box" },{name:'Outlier'}],
           top: "12%",
           textStyle: {
-            color: "black" //图例文字
+            color: "black" //legend color
           },
           selected: { Outlier: false },
         },
         xAxis: [
-          // 柱状图X轴
+          // bar x-axis
           {
             type: "category",
             nameGap: 30,
@@ -155,15 +155,15 @@ export const getBoxOption = (boxData) => {
             name: 'Box',
             type: 'boxplot',
             datasetIndex: 1,
-            yAxisIndex: 1, //在单个图表实例中存在多个y轴的时候有用
-            xAxisIndex: 1,  //使用的 x 轴的index，在单个图表实例中存在多个 x 轴的时候有用
+            yAxisIndex: 1, 
+            xAxisIndex: 1,  
           },
           {
             name: 'Outlier',
             type: 'scatter',
-            yAxisIndex: 1, //在单个图表实例中存在多个y轴的时候有用
+            yAxisIndex: 1, 
             datasetIndex: 2,
-            xAxisIndex: 1,  //使用的 x 轴的index，在单个图表实例中存在多个 x 轴的时候有用
+            xAxisIndex: 1, 
           }
         ]
     

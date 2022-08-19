@@ -1,6 +1,7 @@
 
 export const getMapData = (data) => {
     const mapData = data.map(doc => {
+        //devide map data for Home page
         return {
             id_unique: doc.id_unique,
             id_country: doc.id_country,

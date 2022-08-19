@@ -44,7 +44,7 @@ export const getOffUsageOption=(pieData)=> {
                 tarValue = data[i].value;
               }
             }
-            //var p = Math.round(((tarValue / total) * 100)); //根据情况选择
+            //var p = Math.round(((tarValue / total) * 100)); 
             var p=parseFloat((((tarValue / total) * 100)).toFixed(2))
             return `${name} (${p}%)`;
           },

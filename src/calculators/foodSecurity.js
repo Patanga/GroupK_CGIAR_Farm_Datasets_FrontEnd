@@ -1,3 +1,4 @@
+//set up two map easy for sort
 const monthsMap = {
     Jan: 1, Feb: 2, Mar: 3, Apr: 4, May: 5, Jun: 6,
     Jul: 7, Aug: 8, Sep: 9, Oct: 10, Nov: 11, Dec: 12
@@ -8,8 +9,6 @@ const foodMap = {
     vegetables: 6, fruits: 7, meat: 8, eggs: 9, milk_dairy: 10
 };
 
-
-// wzj
 export const count = (dataForAPIList, countType) => {
     function insert(counter, treeNode) {
         if (treeNode === null) {
@@ -91,7 +90,7 @@ export const count = (dataForAPIList, countType) => {
     }
 };
 
-//
+//food shortage sorce process
 export const buildFoodShortageData = (dataForAPIList) => {
     let result = count(dataForAPIList, "FoodShortage");
     result = sortByMap(result, monthsMap);
@@ -103,14 +102,14 @@ export const buildFoodShortageData = (dataForAPIList) => {
     return {dataset: result, average: aveNum}
 };
 
-//
+//HDDS sorce process
 export const buildHDDSData = (dataForAPIList) => {
     let resultLean = dataForAPIList.map(dataObj => dataObj.api_hdds_lean);
     let resultFlush = dataForAPIList.map(dataObj => dataObj.api_hdds_flush);
     return [resultLean.filter(num => num >= 0), resultFlush.filter(num => num >= 0)];
 };
 
-//
+//Food consumed data process
 export const buildFoodConsumedData = (dataForAPIList) => {
     let resultOfCount = count(dataForAPIList, "FoodConsumed");
     let resultLean = resultOfCount.food_lean;

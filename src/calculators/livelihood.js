@@ -1,4 +1,4 @@
-
+//livelihood bar chart source process
 export const getBarData = (data) => {
     const barData = data.map(doc => {
         let newdoc = {
@@ -20,6 +20,7 @@ export const getBarData = (data) => {
     return barData;
 }
 
+//livelihood pie chart source process
 export const getPieData = (data) => {
     let under_1_cnt = 0;
     let _1to1_9_cnt = 0;
@@ -45,8 +46,8 @@ export const getPieData = (data) => {
     ]
 }
 
+//livelihood box-whisker chart source process
 export const getBoxData = (data) => {
-
     let cons_crop_annual_arr = [];
     let cons_lstk_annual_arr = [];
     let incm_crop_annual_arr = [];

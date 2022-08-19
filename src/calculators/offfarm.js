@@ -26,7 +26,7 @@ export const buildOffFarmIncome=(dataForAPIList)=>{
         if(!pro_string){
             percent_change.zero++
         }
-        //将string转化为百分比
+        //match string with percentage
         if(pro_string==="all"){
             percent_change.all++
         }

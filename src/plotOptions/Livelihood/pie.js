@@ -30,7 +30,7 @@ export const getPieOption=(pieData)=> {
                 tarValue = data[i].value;
               }
             }
-            var p = Math.round(((tarValue / total) * 100)); //根据情况选择
+            var p = Math.round(((tarValue / total) * 100)); //choose by situation
             //var p=parseFloat((((tarValue / total) * 100)).toFixed(3))
             return `${name} (${p}%)`;
           },

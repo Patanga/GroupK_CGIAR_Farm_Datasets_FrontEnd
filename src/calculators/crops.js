@@ -23,21 +23,19 @@ export const buildCropGrown=(dataForAPIList)=>{
         }
     }
 
-    var empty = [];//声明一个空数组
-    for(var n=0;n<arr.length;n++){//循环arr中元素
-        //判断empty数组中是否有arr数组中的第n个元素，小于0就是没有
-        //if 没有，把此元素添加到empty中
+    var empty = [];
+    for(var n=0;n<arr.length;n++){
         if(empty.indexOf(arr[n])<0){
-            empty.push(arr[n]);//push()用来向数组的末尾添加元素
+            empty.push(arr[n]);
         }
     }
-    arr = empty;//这里得到没有重复的约上百种种crop ，即横坐标文字
+    arr = empty;//x-asix names
 
-    var count_of_households = new Array(arr.length);//新建一个数组存储arr每个元素对应的数据
-    for(var m=0;m<count_of_households.length;m++){//数组元素初始化为0
+    var count_of_households = new Array(arr.length);
+    for(var m=0;m<count_of_households.length;m++){
         count_of_households[m]=0;
     }
-    for(var j1=0;j1<arr.length;j1++){//对于每一个横坐标字符串，遍历所有household的crops_all字段，如果字段包含该字符串，则对应的count_of_households数组元素+1
+    for(var j1=0;j1<arr.length;j1++){
         var crop_name = arr[j1];
         for(var k=0;k<dataForAPIList.length;k++){
             if(dataForAPIList[k].api_crops_all.indexOf(crop_name)!==-1){
@@ -47,8 +45,8 @@ export const buildCropGrown=(dataForAPIList)=>{
     }
     for(var l=0;l<arr.length;l++){
          const doc = [
-            arr[l],//横坐标
-            count_of_households[l],//纵坐标
+            arr[l],//x-axis
+            count_of_households[l],//y-axis
          ]
          barData.push(doc)
     }
@@ -85,15 +83,13 @@ export const buildCropUsed=(dataForAPIList)=>{
             cropName.push(dataForAPIList[i5].api_consumed_sold8[0]);
         }
     }
-    var empty = [];//声明一个空数组
-    for(var n=0;n<cropName.length;n++){//循环arr中元素
-        //判断empty数组中是否有arr数组中的第n个元素，小于0就是没有
-        //if 没有，把此元素添加到empty中
+    var empty = [];
+    for(var n=0;n<cropName.length;n++){
         if(empty.indexOf(cropName[n])<0){
-            empty.push(cropName[n]);//push()用来向数组的末尾添加元素
+            empty.push(cropName[n]);
         }
     }
-    cropName = empty;//这里得到没有重复的约上百种种crop ，即横坐标文字
+    cropName = empty;//all x-axis names
 
     for(var i0=0;i0<cropName.length;i0++){
         consumed[i0]=0;
@@ -179,15 +175,13 @@ export const buildCropYields=(dataForAPIList)=>{
             cropName.push(dataForAPIList[i].api_name_yield8[0]);
         }
     }
-    var empty = [];//声明一个空数组
-    for(var n=0;n<cropName.length;n++){//循环arr中元素
-        //判断empty数组中是否有arr数组中的第n个元素，小于0就是没有
-        //if 没有，把此元素添加到empty中
+    var empty = [];
+    for(var n=0;n<cropName.length;n++){
         if(empty.indexOf(cropName[n])<0){
-            empty.push(cropName[n]);//push()用来向数组的末尾添加元素
+            empty.push(cropName[n]);
         }
     }
-    cropName = empty;//这里得到没有重复的约上百种种crop ，即横坐标文字
+    cropName = empty;
 
     for(var ii=0;i<cropName.length;ii++){
         var harvest = [];

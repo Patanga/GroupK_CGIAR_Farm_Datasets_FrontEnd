@@ -43,7 +43,7 @@ export const getFsHFIASOption = (data) => {
               }
             }
             //var v = tarValue;
-            var p = Math.round(((tarValue / total) * 100)); //根据情况选择
+            var p = Math.round(((tarValue / total) * 100)); //choose by need (with next line)
             //var p=parseFloat((((tarValue / total) * 100)).toFixed(2))
             return `${name} (${p}%)`;
           },
