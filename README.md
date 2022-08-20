@@ -39,15 +39,15 @@ It is divided into six files, corresponding to the pages selected by the top but
 
 ### components
 
-
+This part is divided into four parts: dashboard, grouping, navigator and page, corresponding to the functions and logic that need to be called to execute each part.
 
 ### css
 
-
+Here bootstrap is used as the template for the layout, in which the css is styled.
 
 ### pages
 
-
+For each of the six pages in the navigation bar, set the corresponding dashboard's draw function to be called in each page.
 
 ### plotOptions
 
