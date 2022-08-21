@@ -86,14 +86,6 @@ export const buildHeadsData = (dataForAPIList) => {
         box.push(arr)
         count.push(cnt)
     }
-    console.log(
-        {
-            name:name,
-            box:box,
-            count:count
-        }
-    )
-
     return {
         name:name,
         box:box,
