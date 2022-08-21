@@ -33,7 +33,7 @@ export const getBarOption = (barData) => {
         yAxis: [
             {
                 type: 'value',
-                name: 'US Dollor($) per person per day',
+                name: 'US Dollor per person per day',
             }
         ],
         dataZoom: [
