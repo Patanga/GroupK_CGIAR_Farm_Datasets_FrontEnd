@@ -183,7 +183,7 @@ export const buildCropYields=(dataForAPIList)=>{
     }
     cropName = empty;
 
-    for(var ii=0;i<cropName.length;ii++){
+    for(var ii=0; ii<cropName.length;ii++){
         var harvest = [];
         for(var j in dataForAPIList){
             if(cropName[ii]===dataForAPIList[j].api_name_yield1[0]){
