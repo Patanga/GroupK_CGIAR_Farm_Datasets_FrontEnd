@@ -69,7 +69,8 @@ export const getFsFoodConsumedOption = (data) => {
                 axisLabel: { interval: 0, rotate: 45 }
             },
             yAxis: {
-                type: "value"
+                type: "value",
+                name:"Food Consumed"
             },
             series: [
                 {name: "Lean Season", type: "bar"},
