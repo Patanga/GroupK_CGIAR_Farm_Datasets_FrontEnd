@@ -13,6 +13,16 @@ export const getBarOption = (barData) => {
                 }
             }
         },
+        legend: {
+            type: 'scroll',
+            top: '6%',
+            itemGap :5,
+            itemWidth:15,
+            itemHeight:7,
+            textStyle: {
+                fontSize:10,
+            },
+        },
         toolbox: {
             show: true,
             feature: {
@@ -28,12 +38,13 @@ export const getBarOption = (barData) => {
             {
                 show: false,
                 type: 'category',
+                name:"Livelihood ID"
             }
         ],
         yAxis: [
             {
                 type: 'value',
-                name: 'US Dollor per person per day',
+                name: 'USD per person per day',
             }
         ],
         dataZoom: [
