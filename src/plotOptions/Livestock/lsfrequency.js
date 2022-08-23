@@ -28,7 +28,7 @@ export const getLsFrequencyOption = (freData) => {
         },
         yAxis: {
             type: "value",
-            name:'count',
+            name:'Count',
         },
         series: [ {type: "bar",color:'orange'} ]
     }

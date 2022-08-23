@@ -28,7 +28,7 @@ export const getOffMonthOption = (monData) => {
         yAxis: [
             {
                 type: 'value',
-                name:'count'
+                name:'Count'
             }
         ],
         series: [

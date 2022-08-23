@@ -1,7 +1,7 @@
 export const getLsUsagesOption = (useData) => {
     return {
         title: {
-            text: 'Lifestock Usages',
+            text: 'Livestock Usages',
             left: 'center'
         },
         toolbox: {
@@ -33,7 +33,7 @@ export const getLsUsagesOption = (useData) => {
         },
         yAxis: {
             type: "value",
-            name:"percentage(%)"
+            name:"Percentage(%)"
         },
         series: [
             {name: "Sale", type: "bar"},

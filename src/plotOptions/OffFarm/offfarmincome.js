@@ -28,7 +28,7 @@ export const getOffIncomeOption = (hisData) => {
         yAxis: [
             {
                 type: 'value',
-                name:'percentage'
+                name:'Percentage'
             }
         ],
         series: [

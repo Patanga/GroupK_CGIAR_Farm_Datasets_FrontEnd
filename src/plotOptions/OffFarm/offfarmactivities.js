@@ -52,7 +52,7 @@ export const getOffActivityOption = (barData) => {
         },
         yAxis: {
             type: 'value',
-            name:'count'
+            name:'Count'
         },
         series: [
             {

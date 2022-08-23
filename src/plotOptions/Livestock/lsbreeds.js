@@ -28,7 +28,7 @@ export const getLsBreedsOption = (breData) => {
         },
         yAxis: {
             type: "value",
-            name: "percentage(%)"
+            name: "Percentage(%)"
         },
         series: [ {type: "bar",color:'orange'} ]
     }
