@@ -1,73 +1,143 @@
-# rhomis_dashboard_front-TEST
-The back-end of this project is [GroupK_CGIAR_Farm_Datasets_BackEnd](https://github.com/Patanga/GroupK_CGIAR_Farm_Datasets_BackEnd).
+# Rhomis Dashboard Front-End
+The back-end of this project is [GitHub Repository](https://github.com/Patanga/GroupK_CGIAR_Farm_Datasets_BackEnd).
 
-# Getting Started with Create React App
+# Getting Started with Front-End
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Setup for Local Development
 
-In the project directory, you can run:
+1. Download the back-end of this project and run it, for detail please visit this [GitHub Repository](https://github.com/Patanga/GroupK_CGIAR_Farm_Datasets_BackEnd).
+2. Clone this  front -end repository
+3. Install npm dependencies: `npm install`
+4. Run the app : `npm start`
+   - By default, it will run on localhost:8081. This is the default for projects created with [Create React App](https://github.com/facebook/create-react-app).
+   - You can change the default port by overwriting the .env file:
+     - `npm start` will use the `.env.development` file. You can overwrite this locally by copying the file to `.env.development.local`.
+     - To update the port, add a new "PORT" variable.
+     - For more information on how Create React App handles .env files, see the documentation [here](https://create-react-app.dev/docs/adding-custom-environment-variables/#adding-development-environment-variables-in-env)
 
-### `npm start`
+# Web Page Function Reference
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. The switch bar on the top right can be clicked to switch pages, a total of 6 pages.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. In the filter box on the left, you can select countries, regions, projects, and per capita income. The filtering is linked, and only the content of the corresponding range will appear under the influence of the content selected by the previous level.
 
-### `npm test`
+3. Some dashboards have a zoom box on the right or below, use the mouse wheel or drag the start and end points to view the data within the range you need.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. ![](pics/downloadbutton.png)
 
-### `npm run build`
+   Two buttons in the upper right corner of each dashboard. The function corresponding to the first button is to convert the chart into the form of data so that the original data can be read directly. The second button is the download function, which can download the chart in png format.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Code Parts Reference
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In the folder called `GroupK_CGIAR_Farm_Datasets_FrontEnd/src`,  there are five main parts which are calculators, components, css, pages and plotOptions. The followings are the instructions of each parts.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### calculators
 
-### `npm run eject`
+It is divided into six files, corresponding to the pages selected by the top button. This part is called as a function in the pages file, and the data read from the back-end API selects the part needed by each dashboard according to the key value for further calculation. Calculations serve two purposes. The first is to perform statistical calculation on the data. The data output in the back-end API is JSON in units of each household (livelihood). The calculation module needs to process and count all households as a whole. The second is to serve the output of each chart part in the plotOption file, try to use a data format that meets the requirements of Echarts (such as two-dimensional arrays or specially placed key-value pairs, etc.)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### components
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This part is divided into four parts: dashboard, grouping, navigator and page, corresponding to the functions and logic that need to be called to execute each part.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### css
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Here bootstrap is used as the template for the layout, in which the css is styled.
 
-## Learn More
+### pages
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+For each of the six pages in the navigation bar, set the corresponding dashboard's draw function to be called in each page.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### plotOptions
 
-### Code Splitting
+It is divided into six folders according to different pages. Each folder contains the configuration content required by Echarts of each dashboards, and will return a JSON file, which is the JSON required by the options of Echarts. These options will be standardized according to the type and readability of the chart, including but not limited to parameters such as color, font, grid position, and axis units. At the same time, the data will be further adjusted, such as sorting or capitalization, etc., and adjusted in the formatter. This  [Chart Configuration link](https://echarts.apache.org/en/option.html#title) is the configuration instructions for Echarts.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Some special config of options :
 
-### Analyzing the Bundle Size
+##### Pie Chart
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```javascript
+formatter: function(name) {
+            var data = option.series[0].data;
+            var total = 0;
+            var tarValue;
+            for (var i = 0; i < data.length; i++) {
+              total += data[i].value;
+              if (data[i].name === name) {
+                tarValue = data[i].value;
+              }
+            }
+            var p = Math.round(((tarValue / total) * 100)); //choose by situation
+            //var p=parseFloat((((tarValue / total) * 100)).toFixed(3))
+            return `${name} (${p}%)`;
+          }
+```
 
-### Making a Progressive Web App
+This section can attach the percentage of the corresponding content to the name behind the legend displayed by the pie chart. The number of decimal places required to be reserved before the percent sign, or the method of rounding, can be changed by replacing the comment line.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+##### Box-whisker
 
-### Advanced Configuration
+```javascript
+          {
+            text: 'upper: Q3 + 1.5 * IQR \nlower: Q1 - 1.5 * IQR',
+            borderColor: '#999',
+            borderWidth: 1,
+            textStyle: {
+              fontWeight: 'normal',
+              fontSize: 10,
+              lineHeight: 20
+            },
+          }
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This part is the data calculation standard of the box-and-whisker plot selected by this webpage, which is the default calculation standard formula of Echarts.
 
-### Deployment
+##### Box and Bar
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```javascript
+legend: {
+          data: [{ name: "Zero Count" }, { name: "Box" },{name:'Outlier'}],
+          top: "12%",
+          textStyle: {
+            color: "black" //legend color
+          },
+          selected: { Outlier: false },
+        }
+```
 
-### `npm run build` fails to minify
+This section allows the user to choose to display different types of charts by clicking on the content in the legend box.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In this code, you can choose which types of charts are loaded by default by changing the parameters in the 'selected'.
+
+```javascript
+ series: [
+          {
+            name: "Zero Count",
+            type: "bar",
+            data: boxData.count,
+            itemStyle: {
+              normal: {
+                barBorderRadius: 0,
+                color: "orange"
+              }
+            },
+          },
+          {
+            name: 'Box',
+            type: 'boxplot',
+            datasetIndex: 1,
+            yAxisIndex: 1, 
+            xAxisIndex: 1,  
+          },
+          {
+            name: 'Outlier',
+            type: 'scatter',
+            yAxisIndex: 1, 
+            datasetIndex: 2,
+            xAxisIndex: 1, 
+          }
+        ]
+```
+
+The data required for each chart needs to be provided in the series configuration.
