@@ -1,0 +1,38 @@
+# This is a basic workflow to help you get started with Actions
+# 
+
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - .gitignore
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+
+    # ... your implementation to deploy your project
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Deploying API server code to production server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd "/home/zhijun/github/GroupK_CGIAR_Farm_Datasets_FrontEnd/"
+            echo -n "Try to rebuild front page at: " >> .deployment_log
+            echo $(date +%F%n%T) >> .deployment_log
+            git fetch
+            git pull
+            npm install
+            npm run build
+            cat .deployment_log
